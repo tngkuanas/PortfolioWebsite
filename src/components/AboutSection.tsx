@@ -119,15 +119,12 @@ export const AboutSection: React.FC = () => {
             </div>
           </h2>
 
-          {/* Sub-heading Description: Computer Science / Quant · Investments · Trading · Data Science · AI */}
+          {/* Sub-heading Description: Quant · Investments · Trading · Data Science · AI */}
           <div
             ref={subHeadingRef}
             className="font-garamond text-lg sm:text-2xl md:text-3xl text-[#121315] tracking-[0.05em] leading-relaxed bateman-letterpress"
           >
             <p>
-              C<span className="text-[0.74em] uppercase">omputer</span> S<span className="text-[0.74em] uppercase">cience</span>
-            </p>
-            <p className="mt-1">
               Q<span className="text-[0.74em] uppercase">uant</span> &nbsp;·&nbsp; I<span className="text-[0.74em] uppercase">nvestments</span> &nbsp;·&nbsp; T<span className="text-[0.74em] uppercase">rading</span> &nbsp;·&nbsp; D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span> &nbsp;·&nbsp; AI
             </p>
           </div>
@@ -172,7 +169,7 @@ export const AboutSection: React.FC = () => {
             </span>
           </div>
 
-          {/* Metadata Block 3: Focus (The 5 Key Pillars) */}
+          {/* Metadata Block 3: Focus */}
           <div className="meta-item flex flex-col space-y-1">
             <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
               FOCUS
