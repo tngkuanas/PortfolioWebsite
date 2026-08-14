@@ -25,19 +25,19 @@ export const LabSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Lab Explorations Grid */}
+      {/* Lab Explorations Grid (Solid Black Borders) */}
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 font-garamond">
         {LAB_EXPLORATIONS.map((item) => (
           <div
             key={item.id}
-            className="p-8 border border-[#d8d3c4] hover:border-[#121315] transition-all bg-[#121315]/[0.01] flex flex-col justify-between space-y-6"
+            className="p-8 border border-[#121315] hover:bg-[#121315]/[0.02] transition-all flex flex-col justify-between space-y-6"
           >
             <div>
               <div className="flex items-center space-x-3">
                 <span className="font-mono text-xs tracking-[0.2em] text-[#706f6a] font-semibold">
                   {item.number}
                 </span>
-                <span className="w-3 h-[1px] bg-[#706f6a]/50" />
+                <span className="w-3 h-[1px] bg-[#121315]" />
                 <span className="font-mono text-[10px] tracking-[0.18em] text-[#706f6a] uppercase">
                   ACTIVE EXPERIMENT
                 </span>
@@ -56,7 +56,7 @@ export const LabSection: React.FC = () => {
               </p>
             </div>
 
-            <div className="pt-4 border-t border-[#d8d3c4]/60 flex items-center justify-between font-mono text-[10px] tracking-[0.18em] text-[#706f6a] uppercase">
+            <div className="pt-4 border-t border-[#121315] flex items-center justify-between font-mono text-[10px] tracking-[0.18em] text-[#706f6a] uppercase">
               <span>STATUS: IN PROGRESS</span>
               <span>2026</span>
             </div>

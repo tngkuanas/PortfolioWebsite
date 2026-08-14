@@ -41,16 +41,16 @@ export const SelectedWorkSection: React.FC<Props> = ({ onSelectProjectForCaseStu
         </div>
       </div>
 
-      {/* Projects Editorial Layout */}
-      <div className="w-full space-y-12 sm:space-y-16">
+      {/* Projects Editorial Layout (Solid Black High-Contrast Borders) */}
+      <div className="w-full space-y-8">
         {SELECTED_PROJECTS.map((project) => (
           <div
             key={project.id}
             onClick={() => setActiveProject(project)}
             className={`group w-full cursor-pointer transition-all duration-300 p-6 sm:p-10 border ${
               activeProject.id === project.id
-                ? 'border-[#121315] bg-[#121315]/[0.02] shadow-xs'
-                : 'border-[#d8d3c4]/70 hover:border-[#121315]/50'
+                ? 'border-[#121315] bg-[#121315]/[0.03] shadow-xs'
+                : 'border-[#121315]/30 hover:border-[#121315]'
             }`}
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
@@ -60,7 +60,7 @@ export const SelectedWorkSection: React.FC<Props> = ({ onSelectProjectForCaseStu
                   <span className="font-mono text-sm sm:text-base text-[#706f6a] tracking-[0.18em] font-medium">
                     {project.number}
                   </span>
-                  <span className="w-6 h-[1px] bg-[#d8d3c4]" />
+                  <span className="w-6 h-[1px] bg-[#121315]" />
                   <span className="font-mono text-xs tracking-[0.15em] text-[#5a5b5e] uppercase">
                     {project.category}
                   </span>
@@ -75,7 +75,7 @@ export const SelectedWorkSection: React.FC<Props> = ({ onSelectProjectForCaseStu
                   {project.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="px-2.5 py-1 border border-[#c8c3b4]/60 uppercase bg-[#f7f6f2]/80"
+                      className="px-2.5 py-1 border border-[#121315] uppercase bg-[#f7f6f2]"
                     >
                       {tag}
                     </span>

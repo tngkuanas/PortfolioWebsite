@@ -6,7 +6,7 @@ export const HeaderNav: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroThreshold = window.innerHeight * 0.5;
+      const heroThreshold = window.innerHeight * 0.45;
       setIsVisible(window.scrollY > heroThreshold);
 
       const sections = ['about', 'work', 'case-studies', 'research', 'experience', 'lab', 'now', 'contact'];
@@ -49,23 +49,23 @@ export const HeaderNav: React.FC = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-10 flex items-center justify-between font-garamond">
-        {/* Left Identity Stamp */}
+        {/* Left Editorial Stamp */}
         <a 
           href="#hero" 
           className="flex items-center space-x-3 group text-left"
         >
-          <div className="w-6 h-6 border border-[#f7f6f2]/80 flex items-center justify-center font-garamond text-xs font-semibold text-[#f7f6f2]">
+          <div className="w-6 h-6 border border-[#f7f6f2] flex items-center justify-center font-garamond text-xs font-semibold text-[#f7f6f2]">
             TA
           </div>
           <div>
-            <p className="font-garamond text-sm tracking-[0.14em] font-medium uppercase text-[#f7f6f2]">
+            <p className="font-garamond text-xs sm:text-sm tracking-[0.18em] font-medium uppercase text-[#f7f6f2]">
               TENGKU ANAS
             </p>
           </div>
         </a>
 
-        {/* Section Navigation Links */}
-        <nav className="hidden lg:flex items-center space-x-6 font-mono text-[11px] tracking-[0.15em]">
+        {/* Section Navigation Links (Serif Editorial Garamond, Non-Techy) */}
+        <nav className="hidden lg:flex items-center space-x-7 font-garamond text-xs tracking-[0.18em]">
           {navItems.map((item) => (
             <a
               key={item.id}
@@ -85,15 +85,15 @@ export const HeaderNav: React.FC = () => {
         <div className="flex items-center">
           <a
             href="#contact"
-            className="px-3 py-1 border border-[#f7f6f2]/70 text-[#f7f6f2] hover:bg-[#f7f6f2] hover:text-[#0e0f11] font-mono text-[10px] tracking-[0.18em] uppercase transition-all"
+            className="px-3.5 py-1 border border-[#f7f6f2] text-[#f7f6f2] hover:bg-[#f7f6f2] hover:text-[#0e0f11] font-garamond text-xs tracking-[0.2em] uppercase transition-all"
           >
             CONTACT
           </a>
         </div>
       </div>
 
-      {/* Mobile nav bar menu strip */}
-      <div className="lg:hidden flex overflow-x-auto whitespace-nowrap space-x-4 px-6 pt-2 pb-1 border-t border-[#22242a] mt-2 bg-[#0e0f11] scrollbar-none font-mono text-[9px] tracking-wider text-[#9094a0]">
+      {/* Mobile nav bar strip (Serif Garamond) */}
+      <div className="lg:hidden flex overflow-x-auto whitespace-nowrap space-x-4 px-6 pt-2 pb-1 border-t border-[#22242a] mt-2 bg-[#0e0f11] scrollbar-none font-garamond text-xs tracking-[0.15em] text-[#9094a0]">
         {navItems.map((item) => (
           <a
             key={item.id}

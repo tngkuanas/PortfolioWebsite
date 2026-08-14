@@ -30,7 +30,7 @@ export const ContactSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Return to Physical Business-Card Aesthetic Container */}
+      {/* Return to Physical Business-Card Aesthetic Container (Solid Black Border) */}
       <div className="w-full my-auto max-w-4xl mx-auto p-10 sm:p-16 border border-[#121315] bg-[#121315]/[0.02] shadow-sm flex flex-col space-y-10 font-garamond">
         {/* Name Heading */}
         <div>
@@ -43,8 +43,8 @@ export const ContactSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Contact Coordinates */}
-        <div className="flex flex-col space-y-6 pt-6 border-t border-[#d8d3c4]">
+        {/* Contact Coordinates (Solid Black Top Border) */}
+        <div className="flex flex-col space-y-6 pt-6 border-t border-[#121315]">
           {/* Email */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <span className="font-mono text-xs tracking-[0.2em] text-[#706f6a] uppercase">
@@ -59,7 +59,7 @@ export const ContactSection: React.FC = () => {
               </a>
               <button
                 onClick={handleCopyEmail}
-                className="px-3 py-1 border border-[#121315]/40 font-mono text-[10px] tracking-[0.18em] uppercase hover:bg-[#121315] hover:text-[#f7f6f2] transition-colors"
+                className="px-3 py-1 border border-[#121315] font-mono text-[10px] tracking-[0.18em] uppercase hover:bg-[#121315] hover:text-[#f7f6f2] transition-colors"
               >
                 {copied ? 'COPIED' : 'COPY'}
               </button>

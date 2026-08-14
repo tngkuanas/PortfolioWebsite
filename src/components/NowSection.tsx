@@ -22,8 +22,8 @@ export const NowSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Minimal Status Grid */}
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 font-garamond border-t border-[#d8d3c4] pt-12">
+      {/* Minimal Status Grid (Solid Black Top Border) */}
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 font-garamond border-t border-[#121315] pt-12">
         {/* BASED IN */}
         <div className="flex flex-col space-y-2">
           <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">

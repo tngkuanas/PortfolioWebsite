@@ -31,22 +31,22 @@ export const ExperienceSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Short Editorial Timeline */}
-      <div className="w-full space-y-8 font-garamond">
+      {/* Short Editorial Timeline (Solid Black Borders) */}
+      <div className="w-full space-y-6 font-garamond">
         {EXPERIENCES.map((exp) => {
           const isExpanded = expandedId === exp.id;
           return (
             <div
               key={exp.id}
               onClick={() => toggleExpand(exp.id)}
-              className="w-full p-8 border border-[#d8d3c4] cursor-pointer hover:border-[#121315] transition-all bg-[#121315]/[0.01]"
+              className="w-full p-8 border border-[#121315] cursor-pointer hover:bg-[#121315]/[0.02] transition-all"
             >
               <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4">
                 <div className="flex items-center space-x-4">
                   <span className="font-mono text-xs sm:text-sm tracking-[0.2em] text-[#706f6a] uppercase font-medium">
                     {exp.period}
                   </span>
-                  <span className="w-4 h-[1px] bg-[#d8d3c4]" />
+                  <span className="w-4 h-[1px] bg-[#121315]" />
                   <h3 className="font-garamond text-2xl sm:text-4xl text-[#121315] font-semibold tracking-[0.04em] uppercase bateman-letterpress">
                     {exp.company}
                   </h3>
@@ -68,7 +68,7 @@ export const ExperienceSection: React.FC = () => {
 
               {/* Expandable Interaction Details */}
               {isExpanded && (
-                <div className="pt-6 border-t border-[#d8d3c4] mt-6 text-sm sm:text-lg text-[#5a5b5e] leading-relaxed">
+                <div className="pt-6 border-t border-[#121315] mt-6 text-sm sm:text-lg text-[#5a5b5e] leading-relaxed">
                   <p>{exp.details}</p>
                   <p className="font-mono text-xs tracking-[0.15em] text-[#706f6a] uppercase mt-3">
                     LOCATION: {exp.location}

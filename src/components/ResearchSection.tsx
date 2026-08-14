@@ -25,18 +25,18 @@ export const ResearchSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Editorial Research Archive Listing */}
+      {/* Editorial Research Archive Listing (Solid Black Separator Lines) */}
       <div className="w-full space-y-12">
         {RESEARCH_ARTICLES.map((article) => (
           <div
             key={article.id}
-            className="group w-full border-b border-[#d8d3c4] pb-10 flex flex-col space-y-4"
+            className="group w-full border-b border-[#121315] pb-10 flex flex-col space-y-4"
           >
             <div className="flex items-center space-x-4">
               <span className="font-mono text-xs tracking-[0.2em] text-[#706f6a] uppercase">
                 {article.year}
               </span>
-              <span className="w-4 h-[1px] bg-[#d8d3c4]" />
+              <span className="w-4 h-[1px] bg-[#121315]" />
               <div className="flex flex-wrap gap-2 font-mono text-[10px] tracking-[0.14em] text-[#5a5b5e]">
                 {article.tags.map((t, idx) => (
                   <span key={idx} className="uppercase">
@@ -56,7 +56,7 @@ export const ResearchSection: React.FC = () => {
                 </p>
               </div>
 
-              <span className="font-mono text-xs tracking-[0.2em] text-[#121315] uppercase border-b border-[#121315] pb-0.5 self-start lg:self-auto opacity-70 group-hover:opacity-100 transition-opacity">
+              <span className="font-mono text-xs tracking-[0.2em] text-[#121315] uppercase border-b border-[#121315] pb-0.5 self-start lg:self-auto opacity-80 group-hover:opacity-100 transition-opacity">
                 READ RESEARCH →
               </span>
             </div>

@@ -33,16 +33,16 @@ export const CaseStudiesSection: React.FC<Props> = ({ selectedProject }) => {
         </div>
       </div>
 
-      {/* Project Selector Tabs */}
-      <div className="w-full flex overflow-x-auto whitespace-nowrap space-x-3 mb-12 pb-2 scrollbar-none border-b border-[#d8d3c4]">
+      {/* Project Selector Tabs (Solid Black Borders) */}
+      <div className="w-full flex overflow-x-auto whitespace-nowrap space-x-3 mb-12 pb-2 scrollbar-none border-b border-[#121315]">
         {SELECTED_PROJECTS.map((proj) => (
           <button
             key={proj.id}
             onClick={() => setCurrentProject(proj)}
-            className={`px-4 py-2 font-mono text-xs tracking-[0.14em] uppercase transition-all ${
+            className={`px-4 py-2 font-mono text-xs tracking-[0.14em] uppercase transition-all border ${
               currentProject.id === proj.id
-                ? 'bg-[#121315] text-[#f7f6f2] font-semibold'
-                : 'text-[#5a5b5e] hover:text-[#121315] hover:bg-[#121315]/5'
+                ? 'bg-[#121315] text-[#f7f6f2] border-[#121315] font-semibold'
+                : 'text-[#121315] border-[#121315]/40 hover:border-[#121315] bg-[#f7f6f2]'
             }`}
           >
             {proj.number}. {proj.title}
@@ -53,7 +53,7 @@ export const CaseStudiesSection: React.FC<Props> = ({ selectedProject }) => {
       {/* Case Study 7-Step Analytical Framework */}
       <div className="w-full space-y-8 font-garamond">
         {/* Case Study Header Banner */}
-        <div className="p-8 border border-[#121315] bg-[#121315]/[0.02]">
+        <div className="p-8 border border-[#121315] bg-[#121315]/[0.03]">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <span className="font-mono text-xs tracking-[0.2em] text-[#706f6a] uppercase">
@@ -65,7 +65,7 @@ export const CaseStudiesSection: React.FC<Props> = ({ selectedProject }) => {
             </div>
             <div className="flex flex-wrap gap-2 font-mono text-[10px] tracking-[0.12em]">
               {currentProject.tags.map((t, idx) => (
-                <span key={idx} className="px-2.5 py-1 border border-[#121315]/30 uppercase bg-[#f7f6f2]">
+                <span key={idx} className="px-2.5 py-1 border border-[#121315] uppercase bg-[#f7f6f2]">
                   {t}
                 </span>
               ))}
@@ -73,14 +73,14 @@ export const CaseStudiesSection: React.FC<Props> = ({ selectedProject }) => {
           </div>
         </div>
 
-        {/* 7-Step Breakdown Flow */}
+        {/* 7-Step Breakdown Flow (Solid Black Borders) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* STEP 1: PROBLEM */}
-          <div className="p-6 border border-[#d8d3c4] flex flex-col justify-between space-y-4">
+          <div className="p-6 border border-[#121315] flex flex-col justify-between space-y-4">
             <div>
-              <div className="font-mono text-xs tracking-[0.2em] text-[#706f6a] uppercase font-semibold flex items-center gap-2">
+              <div className="font-mono text-xs tracking-[0.2em] text-[#121315] uppercase font-semibold flex items-center gap-2">
                 <span>01</span>
-                <span className="w-3 h-[1px] bg-[#706f6a]/50" />
+                <span className="w-3 h-[1px] bg-[#121315]" />
                 <span>PROBLEM</span>
               </div>
               <p className="text-base sm:text-lg text-[#2a2b2e] leading-relaxed mt-3">
@@ -90,11 +90,11 @@ export const CaseStudiesSection: React.FC<Props> = ({ selectedProject }) => {
           </div>
 
           {/* STEP 2: DATA */}
-          <div className="p-6 border border-[#d8d3c4] flex flex-col justify-between space-y-4">
+          <div className="p-6 border border-[#121315] flex flex-col justify-between space-y-4">
             <div>
-              <div className="font-mono text-xs tracking-[0.2em] text-[#706f6a] uppercase font-semibold flex items-center gap-2">
+              <div className="font-mono text-xs tracking-[0.2em] text-[#121315] uppercase font-semibold flex items-center gap-2">
                 <span>02</span>
-                <span className="w-3 h-[1px] bg-[#706f6a]/50" />
+                <span className="w-3 h-[1px] bg-[#121315]" />
                 <span>DATA</span>
               </div>
               <p className="text-base sm:text-lg text-[#2a2b2e] leading-relaxed mt-3">
@@ -104,11 +104,11 @@ export const CaseStudiesSection: React.FC<Props> = ({ selectedProject }) => {
           </div>
 
           {/* STEP 3: METHODOLOGY */}
-          <div className="p-6 border border-[#d8d3c4] flex flex-col justify-between space-y-4">
+          <div className="p-6 border border-[#121315] flex flex-col justify-between space-y-4">
             <div>
-              <div className="font-mono text-xs tracking-[0.2em] text-[#706f6a] uppercase font-semibold flex items-center gap-2">
+              <div className="font-mono text-xs tracking-[0.2em] text-[#121315] uppercase font-semibold flex items-center gap-2">
                 <span>03</span>
-                <span className="w-3 h-[1px] bg-[#706f6a]/50" />
+                <span className="w-3 h-[1px] bg-[#121315]" />
                 <span>METHODOLOGY</span>
               </div>
               <p className="text-base sm:text-lg text-[#2a2b2e] leading-relaxed mt-3">
@@ -118,11 +118,11 @@ export const CaseStudiesSection: React.FC<Props> = ({ selectedProject }) => {
           </div>
 
           {/* STEP 4: MODEL */}
-          <div className="p-6 border border-[#d8d3c4] flex flex-col justify-between space-y-4">
+          <div className="p-6 border border-[#121315] flex flex-col justify-between space-y-4">
             <div>
-              <div className="font-mono text-xs tracking-[0.2em] text-[#706f6a] uppercase font-semibold flex items-center gap-2">
+              <div className="font-mono text-xs tracking-[0.2em] text-[#121315] uppercase font-semibold flex items-center gap-2">
                 <span>04</span>
-                <span className="w-3 h-[1px] bg-[#706f6a]/50" />
+                <span className="w-3 h-[1px] bg-[#121315]" />
                 <span>MODEL</span>
               </div>
               <p className="text-base sm:text-lg text-[#2a2b2e] leading-relaxed mt-3">
@@ -132,11 +132,11 @@ export const CaseStudiesSection: React.FC<Props> = ({ selectedProject }) => {
           </div>
 
           {/* STEP 5: VALIDATION */}
-          <div className="p-6 border border-[#d8d3c4] flex flex-col justify-between space-y-4">
+          <div className="p-6 border border-[#121315] flex flex-col justify-between space-y-4">
             <div>
-              <div className="font-mono text-xs tracking-[0.2em] text-[#706f6a] uppercase font-semibold flex items-center gap-2">
+              <div className="font-mono text-xs tracking-[0.2em] text-[#121315] uppercase font-semibold flex items-center gap-2">
                 <span>05</span>
-                <span className="w-3 h-[1px] bg-[#706f6a]/50" />
+                <span className="w-3 h-[1px] bg-[#121315]" />
                 <span>VALIDATION</span>
               </div>
               <p className="text-base sm:text-lg text-[#2a2b2e] leading-relaxed mt-3">
@@ -146,7 +146,7 @@ export const CaseStudiesSection: React.FC<Props> = ({ selectedProject }) => {
           </div>
 
           {/* STEP 6: RESULTS */}
-          <div className="p-6 border border-[#121315] bg-[#121315]/[0.03] flex flex-col justify-between space-y-4">
+          <div className="p-6 border border-[#121315] bg-[#121315]/[0.04] flex flex-col justify-between space-y-4">
             <div>
               <div className="font-mono text-xs tracking-[0.2em] text-[#121315] uppercase font-bold flex items-center gap-2">
                 <span>06</span>
@@ -161,10 +161,10 @@ export const CaseStudiesSection: React.FC<Props> = ({ selectedProject }) => {
         </div>
 
         {/* STEP 7: LIMITATIONS & DECISION TRADE-OFFS */}
-        <div className="p-8 border border-[#d8d3c4] bg-[#f7f6f2]">
-          <div className="font-mono text-xs tracking-[0.2em] text-[#706f6a] uppercase font-semibold flex items-center gap-2 mb-2">
+        <div className="p-8 border border-[#121315] bg-[#f7f6f2]">
+          <div className="font-mono text-xs tracking-[0.2em] text-[#121315] uppercase font-semibold flex items-center gap-2 mb-2">
             <span>07</span>
-            <span className="w-3 h-[1px] bg-[#706f6a]/50" />
+            <span className="w-3 h-[1px] bg-[#121315]" />
             <span>LIMITATIONS &amp; MODEL ASSUMPTIONS</span>
           </div>
           <p className="text-base sm:text-xl text-[#2a2b2e] leading-relaxed">
