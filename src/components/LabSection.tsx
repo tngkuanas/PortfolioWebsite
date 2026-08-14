@@ -5,12 +5,12 @@ export const LabSection: React.FC = () => {
   return (
     <section
       id="lab"
-      className="min-h-screen w-full relative bateman-paper-texture py-24 sm:py-32 px-8 sm:px-14 md:px-20 lg:px-24 flex flex-col justify-between overflow-hidden selection:bg-[#121315] selection:text-[#f7f6f2]"
+      className="w-full relative bateman-paper-texture py-20 sm:py-28 px-8 sm:px-14 md:px-20 lg:px-24 flex flex-col justify-start space-y-12 overflow-hidden selection:bg-[#121315] selection:text-[#f7f6f2]"
     >
       {/* Section Header Grid */}
-      <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-16 items-start">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
         <div className="lg:col-span-2">
-          <div className="font-mono text-xs sm:text-sm tracking-[0.2em] text-[#706f6a] uppercase font-medium bateman-letterpress">
+          <div className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase font-medium bateman-letterpress">
             05 — LAB
           </div>
         </div>
@@ -19,7 +19,7 @@ export const LabSection: React.FC = () => {
           <h2 className="font-garamond text-3xl sm:text-5xl md:text-6xl text-[#121315] font-normal tracking-[0.02em] leading-tight bateman-letterpress uppercase">
             L<span className="text-[0.74em] uppercase">ab</span>
           </h2>
-          <p className="font-garamond text-lg sm:text-xl text-[#5a5b5e] mt-3 max-w-2xl">
+          <p className="font-garamond text-lg sm:text-xl text-[#5a5b5e] mt-2 max-w-2xl">
             Things I'm currently building and thinking about.
           </p>
         </div>

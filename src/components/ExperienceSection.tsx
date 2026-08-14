@@ -5,12 +5,12 @@ export const ExperienceSection: React.FC = () => {
   return (
     <section
       id="experience"
-      className="min-h-screen w-full relative bateman-paper-texture py-24 sm:py-32 px-8 sm:px-14 md:px-20 lg:px-24 flex flex-col justify-between overflow-hidden selection:bg-[#121315] selection:text-[#f7f6f2]"
+      className="w-full relative bateman-paper-texture py-20 sm:py-28 px-8 sm:px-14 md:px-20 lg:px-24 flex flex-col justify-start space-y-12 overflow-hidden selection:bg-[#121315] selection:text-[#f7f6f2]"
     >
       {/* Section Header Grid */}
-      <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-16 items-start">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
         <div className="lg:col-span-2">
-          <div className="font-mono text-xs sm:text-sm tracking-[0.2em] text-[#706f6a] uppercase font-medium bateman-letterpress">
+          <div className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase font-medium bateman-letterpress">
             04 — EXPERIENCE
           </div>
         </div>
@@ -23,7 +23,7 @@ export const ExperienceSection: React.FC = () => {
       </div>
 
       {/* Minimal 2-Entry Editorial Experience */}
-      <div className="w-full space-y-8 font-garamond">
+      <div className="w-full space-y-6 font-garamond">
         {EXPERIENCES.map((exp) => (
           <div
             key={exp.id}
