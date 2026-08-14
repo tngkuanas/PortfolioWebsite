@@ -1,24 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Lenis from 'lenis';
 import { HeaderNav } from './components/HeaderNav';
 import { HeroCard } from './components/HeroCard';
 import { AboutSection } from './components/AboutSection';
 import { SelectedWorkSection } from './components/SelectedWorkSection';
-import { CaseStudiesSection } from './components/CaseStudiesSection';
 import { ResearchSection } from './components/ResearchSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { LabSection } from './components/LabSection';
 import { NowSection } from './components/NowSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { SELECTED_PROJECTS, type ProjectItem } from './data/portfolioData';
 
 export function App() {
-  const [selectedCaseStudyProject, setSelectedCaseStudyProject] = useState<ProjectItem>(
-    SELECTED_PROJECTS[0]
-  );
-
-  // Initialize Lenis with Mouse Wheel Step Normalization & Inertia Smoothing
+  // Initialize Lenis Mouse Wheel Step Normalization & Inertia Smoothing
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.3,
@@ -42,10 +36,6 @@ export function App() {
     };
   }, []);
 
-  const handleSelectProjectForCaseStudy = (project: ProjectItem) => {
-    setSelectedCaseStudyProject(project);
-  };
-
   return (
     <div className="min-h-screen relative text-[#121315] selection:bg-[#121315] selection:text-[#f7f6f2]">
       {/* GPU Composited Hardware-Accelerated Fixed Paper Background */}
@@ -57,30 +47,27 @@ export function App() {
       {/* Hero Digital Business Card */}
       <HeroCard />
 
-      {/* Editorial Master Sections Flow */}
+      {/* Quiet Editorial Master Sections Flow */}
       <main className="relative z-10">
         {/* 01 — ABOUT */}
         <AboutSection />
 
-        {/* 02 — SELECTED WORK */}
-        <SelectedWorkSection onSelectProjectForCaseStudy={handleSelectProjectForCaseStudy} />
+        {/* 02 — WORK */}
+        <SelectedWorkSection />
 
-        {/* 03 — CASE STUDIES */}
-        <CaseStudiesSection selectedProject={selectedCaseStudyProject} />
-
-        {/* 04 — RESEARCH */}
+        {/* 03 — RESEARCH */}
         <ResearchSection />
 
-        {/* 05 — EXPERIENCE */}
+        {/* 04 — EXPERIENCE */}
         <ExperienceSection />
 
-        {/* 06 — LAB */}
+        {/* 05 — LAB */}
         <LabSection />
 
-        {/* 07 — NOW */}
+        {/* 06 — NOW */}
         <NowSection />
 
-        {/* 08 — CONTACT */}
+        {/* 07 — CONTACT */}
         <ContactSection />
       </main>
 

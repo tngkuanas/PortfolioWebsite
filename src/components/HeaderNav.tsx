@@ -12,8 +12,8 @@ export const HeaderNav: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Precise Intersection Observer for Section Navigation Active Link Highlight
-    const sections = ['about', 'work', 'case-studies', 'research', 'experience', 'lab', 'now', 'contact'];
+    // Precise Intersection Observer for Clean 7 Sections Navigation
+    const sections = ['about', 'work', 'research', 'experience', 'lab', 'now', 'contact'];
     
     const observer = new IntersectionObserver(
       (entries) => {
@@ -43,12 +43,11 @@ export const HeaderNav: React.FC = () => {
   const navItems = [
     { id: 'about', label: '01 ABOUT' },
     { id: 'work', label: '02 WORK' },
-    { id: 'case-studies', label: '03 CASE STUDIES' },
-    { id: 'research', label: '04 RESEARCH' },
-    { id: 'experience', label: '05 EXPERIENCE' },
-    { id: 'lab', label: '06 LAB' },
-    { id: 'now', label: '07 NOW' },
-    { id: 'contact', label: '08 CONTACT' },
+    { id: 'research', label: '03 RESEARCH' },
+    { id: 'experience', label: '04 EXPERIENCE' },
+    { id: 'lab', label: '05 LAB' },
+    { id: 'now', label: '06 NOW' },
+    { id: 'contact', label: '07 CONTACT' },
   ];
 
   return (

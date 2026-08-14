@@ -11,18 +11,18 @@ export const NowSection: React.FC = () => {
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-12 items-start">
         <div className="lg:col-span-2">
           <div className="font-mono text-xs sm:text-sm tracking-[0.2em] text-[#706f6a] uppercase font-medium bateman-letterpress">
-            07 — NOW
+            06 — NOW
           </div>
         </div>
 
         <div className="lg:col-span-10">
           <h2 className="font-garamond text-3xl sm:text-5xl md:text-6xl text-[#121315] font-normal tracking-[0.02em] leading-tight bateman-letterpress uppercase">
-            C<span className="text-[0.74em] uppercase">urrent</span> S<span className="text-[0.74em] uppercase">tatus</span> &amp; T<span className="text-[0.74em] uppercase">rajectory</span>
+            N<span className="text-[0.74em] uppercase">ow</span>
           </h2>
         </div>
       </div>
 
-      {/* Minimal Status Grid (Solid Black Top Border) */}
+      {/* 5 Quiet Lines Grid */}
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 font-garamond border-t border-[#121315] pt-12">
         {/* BASED IN */}
         <div className="flex flex-col space-y-2">

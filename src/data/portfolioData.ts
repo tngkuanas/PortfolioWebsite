@@ -2,6 +2,7 @@ export interface ProjectItem {
   id: string;
   number: string;
   title: string;
+  subtitle: string;
   category: string;
   tags: string[];
   shortDescription: string;
@@ -18,11 +19,20 @@ export interface ProjectItem {
 
 export interface ResearchArticle {
   id: string;
-  year: string;
   title: string;
   subtitle: string;
+  year: string;
   tags: string[];
-  url?: string;
+  summary: string;
+  link?: string;
+}
+
+export interface ExperienceItem {
+  id: string;
+  period: string;
+  company: string;
+  role: string;
+  location: string;
   summary: string;
 }
 
@@ -30,204 +40,197 @@ export interface LabItem {
   id: string;
   number: string;
   title: string;
-  subtitle: string;
+  question: string;
   description: string;
 }
 
 export const PERSONAL_INFO = {
-  name: "TENGKU ANAS",
-  fullLegalName: "Tengku Anas Zainal Abidin",
-  title: "QUANTITATIVE RESEARCH · DATA SCIENCE",
-  company: "PETRONAS",
-  companySubUnit: "PETCO TRADING LABUAN COMPANY LTD",
-  phone: "60 19 269 0399",
-  degree: "B.Sc. Computer Science (Data Science)",
-  university: "University of Malaya",
-  location: "Kuala Lumpur, Malaysia",
-  email: "tengkuanas04@gmail.com",
-  linkedin: "https://linkedin.com/in/tengkuanas",
-  github: "https://github.com/tngkuanas",
-  bio: "Computer Science student focused on quantitative research, data-driven systems and machine learning. Interested in the intersection of markets, technology and systematic decision-making."
+  name: 'Tengku Anas Zainal Abidin',
+  shortName: 'Tengku Anas',
+  title: 'Computer Science Student',
+  tagline: 'Quant · Data Science · AI',
+  statement: 'Computer Science student building quantitative, data, and AI systems, with real exposure to financial markets.',
+  email: 'tengkuanas04@gmail.com',
+  linkedin: 'https://linkedin.com/in/tengkuanas',
+  github: 'https://github.com/tngkuanas',
+  location: 'Kuala Lumpur, Malaysia',
+  education: 'University of Malaya — B.Sc. Computer Science (Data Science)',
 };
 
 export const SELECTED_PROJECTS: ProjectItem[] = [
   {
-    id: "regime-detection",
-    number: "01",
-    title: "Multi-Asset Market Regime Detection",
-    category: "Quantitative Finance & Risk",
-    tags: ["Statistical Jump Model", "Portfolio Allocation", "Backtesting"],
-    shortDescription: "Hidden Markov Model (HMM) and Statistical Jump process classifying cross-asset market volatility regimes to dynamically rebalance risk exposure.",
+    id: 'market-regime',
+    number: '01',
+    title: 'Multi-Asset Market Regime Detection',
+    subtitle: 'Statistical Jump Model · Portfolio Allocation · Backtesting',
+    category: 'Quantitative Finance',
+    tags: ['Jump Model', 'Regime Switching', 'Portfolio Allocation'],
+    shortDescription: 'Identifies shifting market volatility regimes across asset classes to dynamically adjust portfolio risk exposure.',
     caseStudy: {
-      problem: "Traditional mean-variance portfolio allocation fails during abrupt market regime shifts, leading to severe drawdown risks when correlations spike toward 1.0.",
-      data: "10-year daily OHLCV price series across global equity indices, US Treasuries, crude oil futures, and FX pairs (1,639 trading observations).",
-      methodology: "Developed a 3-state Gaussian Hidden Markov Model (HMM) with dynamic transition probability matrices to classify low-volatility, trending, and high-volatility crash regimes.",
-      model: "Statistical Jump Model combined with Merton's Jump-Diffusion dynamics to penalize sudden variance spikes in risk-budgeting equations.",
-      validation: "Walk-forward out-of-sample backtesting across 2018 Fed tightening, 2020 COVID shock, and 2022 rate hike cycles.",
-      results: "Reduced maximum portfolio drawdown by 34.2% while achieving a Sharpe Ratio improvement of +0.48 over static 60/40 benchmark.",
-      limitations: "Sensitivity to hyperparameter selection in low-liquidity regimes; occasional lag in detecting intraday flash crashes."
+      problem: 'Asset correlations and volatility profiles change abruptly during market stress, causing standard static allocation models to fail.',
+      data: 'Daily historical prices, implied volatility indices, and cross-asset correlation metrics across equities and commodities.',
+      methodology: 'Formulated a statistical jump model to classify discrete market states into low, medium, and high-volatility regimes.',
+      model: 'Expectation-Maximization state estimation coupled with regime-dependent covariance matrix calculation.',
+      validation: 'Evaluated out-of-sample portfolio Sharpe ratios and maximum drawdown reduction across historical crisis periods.',
+      results: 'Demonstrated improved drawdown control during market turbulence while preserving upside participation during stable trends.',
+      limitations: 'Transition probabilities rely on stationary state assumptions which can delay detection during novel shock events.'
     }
   },
   {
-    id: "em-currency-pressure",
-    number: "02",
-    title: "Emerging Markets Currency Pressure",
-    category: "Macro Econometrics & FX",
-    tags: ["Macro Econometrics", "FX Pressure Index", "Time-Series"],
-    shortDescription: "Empirical Exchange Market Pressure (EMP) index forecasting central bank intervention and currency devaluation risks across Southeast Asian economies.",
+    id: 'em-currency',
+    number: '02',
+    title: 'Emerging Markets Currency Pressure',
+    subtitle: 'Macro Econometrics · FX Pressure Index · Time-Series',
+    category: 'Macro Analytics',
+    tags: ['Econometrics', 'FX Index', 'Time-Series'],
+    shortDescription: 'Tracks exchange rate stress indicators and macro imbalances across developing Asian currency markets.',
     caseStudy: {
-      problem: "Standard macroeconomic indicators lag sudden capital flight and reserve depletion in emerging market currency crises.",
-      data: "Monthly central bank reserve assets, policy interest rate differentials, trade balance flows, and sovereign CDS spreads across 6 ASEAN economies.",
-      methodology: "Constructed a model-based Exchange Market Pressure (EMP) index weighting exchange rate depreciation and foreign reserve depletion.",
-      model: "Vector Autoregression (VAR) with Bayesian Structural Time-Series (BSTS) to isolate exogenous macro shocks from local policy responses.",
-      validation: "Historical out-of-sample stress testing on 2013 Taper Tantrum and 2022 US Dollar rally.",
-      results: "Identified 83.3% of currency pressure events 60 days ahead of central bank rate hikes or official reserve interventions.",
-      limitations: "Opaque central bank off-balance-sheet FX swap reporting introduces noise into reserve depletion metrics."
+      problem: 'Detecting early warning signals of currency pressure in emerging Asian markets before capital flight accelerates.',
+      data: 'Foreign exchange reserves, central bank interest rate differentials, trade balances, and spot/forward FX rates.',
+      methodology: 'Constructed a composite Exchange Market Pressure (EMP) index weighting reserve changes and interest rate movements.',
+      model: 'Vector Autoregression (VAR) model capturing cross-border spillovers and macroeconomic transmission shocks.',
+      validation: 'Historical backtesting against past currency depreciation episodes in Southeast Asia.',
+      results: 'Identified mounting pressure windows 2-4 weeks ahead of significant central bank reserve interventions.',
+      limitations: 'Offshore unhedged capital flows and informal currency interventions are difficult to quantify with public data.'
     }
   },
   {
-    id: "investment-dashboard",
-    number: "03",
-    title: "Personal Investment Dashboard",
-    category: "Portfolio Analytics & Risk Engine",
-    tags: ["Portfolio Risk", "Factor Analytics", "Automated Tracking"],
-    shortDescription: "Automated quantitative analytics platform computing real-time Fama-French factor exposures, Value-at-Risk (VaR), and stress-test scenarios.",
+    id: 'investment-dashboard',
+    number: '03',
+    title: 'Personal Investment Dashboard',
+    subtitle: 'Portfolio Risk · Factor Analytics · Automated Tracking',
+    category: 'Portfolio Analytics',
+    tags: ['Risk Analytics', 'Factor Exposure', 'Local Workspace'],
+    shortDescription: 'Consolidates multi-asset portfolio holdings, factor exposures, and risk metrics into a unified local workspace.',
     caseStudy: {
-      problem: "Retail and institutional portfolio trackers lack granular multi-factor risk attribution and realistic stress-testing routines.",
-      data: "Real-time market feeds, fundamental balance sheet metrics, economic indicators, and personal trade execution logs.",
-      methodology: "Engineered automated ETL pipelines computing daily Fama-French 5-factor exposures, Historical VaR (95%/99%), and Expected Shortfall.",
-      model: "Ridge regression factor attribution combined with Monte Carlo simulation (10,000 runs per asset) for non-linear risk modeling.",
-      validation: "Validated portfolio risk estimates against historical crisis scenarios (2008 GFC, 2020 Pandemics, 2022 Tech Selloff).",
-      results: "Provides real-time portfolio risk metrics with sub-second recalculation latency and automated hedging recommendations.",
-      limitations: "Assumes asset liquidity remains constant during extreme tail-risk events."
+      problem: 'Retail portfolio tools lack transparent factor decomposition and custom downside risk analytics.',
+      data: 'API integrations for price feeds, fundamental financial data, and benchmark indices.',
+      methodology: 'Implemented multi-factor regression analysis to break down portfolio returns into market, size, value, and momentum exposures.',
+      model: 'Parametric and historical Value at Risk (VaR) estimation with downside semi-deviation metrics.',
+      validation: 'Reconciled factor weights against benchmark indices and stress-tested portfolio responses to historic rate hikes.',
+      results: 'Streamlined portfolio rebalancing decisions and highlighted unintended concentration risks.',
+      limitations: 'Factor sensitivities fluctuate over short time horizons, requiring periodic rolling regression windows.'
     }
   },
   {
-    id: "apac-naphtha-cracker",
-    number: "04",
-    title: "APAC Naphtha / Cracker Model",
-    category: "Commodities & Petrochemical Analytics",
-    tags: ["Petrochemical Balance", "Crack Spreads", "Commodities"],
-    shortDescription: "Commercial decision-support model tracking Asian naphtha cracker economics, olefin yields, and LPG feed-switching margins.",
+    id: 'naphtha-cracker',
+    number: '04',
+    title: 'APAC Naphtha / Cracker Model',
+    subtitle: 'Petrochemical Balance · Crack Spreads · Commodities',
+    category: 'Commodity Analytics',
+    tags: ['Commodity Balance', 'Crack Spreads', 'Refining Yields'],
+    shortDescription: 'Models physical refining yields and regional naphtha supply-demand dynamics for Asia-Pacific petrochemical markets.',
     caseStudy: {
-      problem: "Petrochemical trading desks require high-precision margin forecasts to decide between Naphtha and LPG feedstocks under volatile crude oil prices.",
-      data: "Spot pricing for Asian Light Naphtha, Saudi Contract Price Propane/Butane, Ethylene/Propylene co-product pricing, and regional cracker outage schedules.",
-      methodology: "Built an integrated non-linear optimization model calculating netback cash margins per metric ton of cracker feed.",
-      model: "Constrained Quadratic Programming linearized over empirical thermal yield response curves across 14 Asian steam crackers.",
-      validation: "Backtested margin predictions against physical trading desk spot deals and refinery operating rate changes across 2023-2025.",
-      results: "Improved feed-switching margin capture by $6.80/MT and accurately anticipated regional cracker run cuts ahead of market consensus.",
-      limitations: "Unplanned regional plant outages can temporarily distort prompt co-product pricing."
+      problem: 'Predicting regional naphtha crack spread fluctuations driven by refinery maintenance cycles and steam cracker feedstock switching.',
+      data: 'Refinery throughputs, regional shipping fixture data, cracker operating rates, and LPG-naphtha price spreads.',
+      methodology: 'Built a physical supply-demand balance sheet tracking regional refinery output against ethylene plant feedstock appetite.',
+      model: 'Linear yield optimization model balancing naphtha versus LPG economics for regional crackers.',
+      validation: 'Compared model spread forecasts against historical spot physical deals in Singapore and North Asia.',
+      results: 'Provided actionable fundamental context for short-term naphtha crack spread direction.',
+      limitations: 'Unplanned refinery outages and shipping delays introduce short-term noise to balance projections.'
     }
   },
   {
-    id: "aira-ai-agent",
-    number: "05",
-    title: "AIRA — Autonomous AI Agent",
-    category: "Artificial Intelligence & Systems",
-    tags: ["Autonomous AI Agent", "Local Execution", "Decision Tools"],
-    shortDescription: "Privacy-preserving local AI research agent ingesting unstructured financial intelligence, news wires, and report PDFs to generate structured data vectors.",
+    id: 'aira-agent',
+    number: '05',
+    title: 'AIRA — Financial Research Assistant',
+    subtitle: 'Local LLM · Document Analysis · Decision Support',
+    category: 'Artificial Intelligence',
+    tags: ['Local AI', 'Document Parsing', 'Decision Support'],
+    shortDescription: 'A privacy-first local assistant designed to parse financial documents, extract tables, and summarize market reports.',
     caseStudy: {
-      problem: "Quantitative researchers waste hours manually parsing long PDF market reports, OPEC announcements, and earnings transcripts.",
-      data: "Unstructured PDF research papers, news feeds, market commentary, and financial data tables.",
-      methodology: "Built an agentic RAG pipeline using local vector embeddings, structured JSON output parsers, and custom financial domain tools.",
-      model: "Quantized LLaMA-3 / Mistral LLM running locally with Qdrant vector database for sub-second retrieval.",
-      validation: "Evaluated extraction accuracy against human analyst benchmark summaries across 500 financial documents.",
-      results: "Achieved 91.4% extraction accuracy while processing financial reports 15x faster than manual analysis with zero data leakage.",
-      limitations: "Complex nested PDF table structures occasionally require secondary OCR verification."
+      problem: 'Extracting key metrics and structured insights from lengthy earnings reports and commodity market updates quickly.',
+      data: 'Financial PDFs, equity earnings transcripts, and commodity research briefings.',
+      methodology: 'Combined local document parsing with a lightweight retrieval pipeline running entirely on local hardware.',
+      model: 'Quantized open-source LLM integrated with local vector embeddings for contextual search.',
+      validation: 'Tested extraction accuracy against manually annotated tables and key financial disclosures.',
+      results: 'Reduced report synthesis time while maintaining total data privacy without sending documents to cloud APIs.',
+      limitations: 'Complex multi-page nested tables can occasionally misalign during raw text extraction.'
     }
   }
 ];
 
 export const RESEARCH_ARTICLES: ResearchArticle[] = [
   {
-    id: "econometrics-deception",
-    year: "2026",
-    title: "THE ECONOMETRICS OF DECEPTION",
-    subtitle: "Modeling Germany's Shadow Finance",
-    tags: ["ECONOMICS", "ECONOMETRICS"],
-    summary: "An econometric investigation into off-budget fiscal vehicles, shadow banking liabilities, and systemic sovereign risk modeling across European debt markets."
+    id: 'econometrics-deception',
+    title: 'The Econometrics of Deception',
+    subtitle: 'Statistical signatures of anomaly and manipulation in market data',
+    year: '2025',
+    tags: ['Econometrics', 'Anomaly Detection'],
+    summary: 'An exploration into Benfords law, structural breaks, and statistical tests for detecting artificial smoothing or reporting anomalies in financial time series.'
   },
   {
-    id: "the-decoupling",
-    year: "2025",
-    title: "THE DECOUPLING",
-    subtitle: "Has Gold Broken Its Old Macro Rules?",
-    tags: ["MACRO", "TIME SERIES", "INVESTMENTS"],
-    summary: "Analyzing structural breaks in the historical inverse relationship between US 10-Year real yields and spot gold prices amid global central bank reserve diversification."
+    id: 'gold-decoupling',
+    title: 'The Decoupling: Has Gold Broken Its Old Macro Rules?',
+    subtitle: 'Analyzing real yields, central bank purchases, and structural shifts in precious metals',
+    year: '2025',
+    tags: ['Macro', 'Commodities'],
+    summary: 'Examining why traditional inverse relationships between gold prices and US real treasury yields have weakened in recent years due to central bank reserve diversification.'
   },
   {
-    id: "jump-diffusion-commodity",
-    year: "2025",
-    title: "JUMP-DIFFUSION IN COMMODITY MARKETS",
-    subtitle: "Modeling Extreme Energy Price Spikes",
-    tags: ["QUANT FINANCE", "STOCHASTIC PROCESSES"],
-    summary: "Applying Merton's Jump-Diffusion model to energy futures option pricing under severe physical supply bottlenecks and geopolitical shocks."
+    id: 'jump-diffusion',
+    title: 'Jump-Diffusion Models in Commodity Markets',
+    subtitle: 'Capturing tail risk and supply shock spikes in energy prices',
+    year: '2024',
+    tags: ['Commodities', 'Stochastic Calculus'],
+    summary: 'Comparing standard continuous Brownian motion assumptions against Merton jump-diffusion models for pricing energy volatility and managing physical supply disruption risk.'
   }
 ];
 
-export const EXPERIENCES = [
+export const EXPERIENCES: ExperienceItem[] = [
   {
-    id: "petco",
-    period: "2026 — PRESENT",
-    company: "PETCO TRADING",
-    role: "Quantitative & Data Science",
-    location: "Kuala Lumpur, Malaysia",
-    shortSummary: "Quantitative research, market econometrics, and data science models for commercial crude oil and petrochemical trading desks.",
-    details: "Building quantitative decision tools, market balance models, predictive yield analytics, and statistical algorithms for Asia-Pacific energy commodity trading."
+    id: 'petco',
+    period: '2026',
+    company: 'PETCO TRADING (PETRONAS)',
+    role: 'Data Analytics Intern',
+    location: 'Kuala Lumpur',
+    summary: 'Worked on quantitative commodity balance models, refining yield tracking, and market analytics for the trading desk.'
   },
   {
-    id: "um-analytics",
-    period: "2024 — 2025",
-    company: "UM DATA ANALYTICS CLUB",
-    role: "Lead, External Relations",
-    location: "University of Malaya",
-    shortSummary: "Led industry partnerships, technical analytics workshops, and competitive data hackathons.",
-    details: "Organized industry quantitative workshops, spearheaded university data hackathons, and established corporate analytical partnerships with leading tech and finance firms."
+    id: 'um-dac',
+    period: '2024 — 2025',
+    company: 'UM DATA ANALYTICS CLUB',
+    role: 'Technical Lead',
+    location: 'University of Malaya',
+    summary: 'Led technical workshops on data analysis, machine learning fundamentals, and quantitative modeling projects for student developers.'
   }
 ];
 
 export const LAB_EXPLORATIONS: LabItem[] = [
   {
-    id: "lab-recency-forecasting",
-    number: "01",
-    title: "RECENCY-BIASED FORECASTING",
-    subtitle: "Exponential Decay Weighting in State-Space Models",
-    description: "Testing dynamic exponential decay memory parameters in Kalman filter state updates to accelerate model adaptation during structural market regime breaks."
+    id: 'lab-1',
+    number: '01',
+    title: 'RECENCY-BIASED FORECASTING',
+    question: 'How much should a model remember?',
+    description: 'Testing exponential decay parameters in time-series forecasting when market regimes shift rapidly.'
   },
   {
-    id: "lab-commodity-modelling",
-    number: "02",
-    title: "COMMODITY MARKET MODELLING",
-    subtitle: "Non-Linear Physical Refining Constraints",
-    description: "Formulating piece-wise non-linear response surfaces modeling refinery processing unit bottlenecks and storage contango/backwardation transitions."
+    id: 'lab-2',
+    number: '02',
+    title: 'COMMODITY MODELLING',
+    question: 'Forecasting physical constraints in refining.',
+    description: 'Building simplified balance models for regional feedstock switching between Naphtha and LPG.'
   },
   {
-    id: "lab-local-ai-agents",
-    number: "03",
-    title: "LOCAL AI AGENTS",
-    subtitle: "Privacy-Preserving Financial Document Intelligence",
-    description: "Experimenting with 8-bit quantized open LLMs (LLaMA-3, DeepSeek) for zero-latency local extraction of financial metrics from raw PDF earnings filings."
+    id: 'lab-3',
+    number: '03',
+    title: 'LOCAL AI TOOLS',
+    question: 'Building financial research tools that run locally.',
+    description: 'Experimenting with small local language models to parse earnings transcripts without third-party APIs.'
   },
   {
-    id: "lab-portfolio-construction",
-    number: "04",
-    title: "PORTFOLIO CONSTRUCTION",
-    subtitle: "Non-Gaussian Tail Risk Black-Litterman",
-    description: "Integrating Extreme Value Theory (EVT) copulas into Black-Litterman asset allocation to model asymmetric fat-tailed co-dependence in turbulent markets."
-  },
-  {
-    id: "lab-regime-detection",
-    number: "05",
-    title: "TIME-SERIES REGIME DETECTION",
-    subtitle: "Hidden Markov Models on Volatility Clusters",
-    description: "Developing unsupervised clustering algorithms on multi-asset implied volatility surfaces to detect early liquidity contraction signals."
+    id: 'lab-4',
+    number: '04',
+    title: 'PORTFOLIO CONSTRUCTION',
+    question: 'Testing alternative approaches to tail risk.',
+    description: 'Evaluating mean-semivariance optimization vs. standard Markowitz models during market drawdowns.'
   }
 ];
 
 export const NOW_STATUS = {
-  location: "Kuala Lumpur, Malaysia",
-  studying: "Computer Science · Data Science",
-  building: "Quantitative & AI systems",
-  learning: "Statistics · Financial Mathematics · Machine Learning",
-  lookingToward: "Quantitative Research · Trading · Data Science · AI"
+  location: 'Kuala Lumpur, Malaysia',
+  studying: 'Computer Science · Data Science',
+  building: 'Quantitative & AI tools',
+  learning: 'Statistics & Financial Math',
+  lookingToward: 'Quant, Trading & AI roles',
 };

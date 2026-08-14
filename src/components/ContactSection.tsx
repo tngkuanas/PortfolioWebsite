@@ -19,18 +19,18 @@ export const ContactSection: React.FC = () => {
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-16 items-start">
         <div className="lg:col-span-2">
           <div className="font-mono text-xs sm:text-sm tracking-[0.2em] text-[#706f6a] uppercase font-medium bateman-letterpress">
-            08 — CONTACT
+            07 — CONTACT
           </div>
         </div>
 
         <div className="lg:col-span-10">
           <h2 className="font-garamond text-3xl sm:text-5xl md:text-6xl text-[#121315] font-normal tracking-[0.02em] leading-tight bateman-letterpress uppercase">
-            C<span className="text-[0.74em] uppercase">ontact</span> &amp; D<span className="text-[0.74em] uppercase">irect</span> R<span className="text-[0.74em] uppercase">egistry</span>
+            C<span className="text-[0.74em] uppercase">ontact</span>
           </h2>
         </div>
       </div>
 
-      {/* Return to Physical Business-Card Aesthetic Container (Solid Black Border) */}
+      {/* Return of Executive Business Card Container */}
       <div className="w-full my-auto max-w-4xl mx-auto p-10 sm:p-16 border border-[#121315] bg-[#121315]/[0.02] shadow-sm flex flex-col space-y-10 font-garamond">
         {/* Name Heading */}
         <div>
@@ -39,11 +39,11 @@ export const ContactSection: React.FC = () => {
             Z<span className="text-[0.72em] uppercase tracking-[0.01em]">ainal</span> A<span className="text-[0.72em] uppercase tracking-[0.01em]">bidin</span>
           </h3>
           <p className="text-lg sm:text-2xl text-[#5a5b5e] tracking-[0.05em] mt-3 bateman-letterpress">
-            Q<span className="text-[0.74em] uppercase">uantitative</span> R<span className="text-[0.74em] uppercase">esearch</span> &nbsp;·&nbsp; D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span> &nbsp;·&nbsp; AI
+            Q<span className="text-[0.74em] uppercase">uant</span> &nbsp;·&nbsp; D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span> &nbsp;·&nbsp; AI
           </p>
         </div>
 
-        {/* Contact Coordinates (Solid Black Top Border) */}
+        {/* Contact Coordinates */}
         <div className="flex flex-col space-y-6 pt-6 border-t border-[#121315]">
           {/* Email */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">

@@ -11,21 +11,18 @@ export const ResearchSection: React.FC = () => {
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-16 items-start">
         <div className="lg:col-span-2">
           <div className="font-mono text-xs sm:text-sm tracking-[0.2em] text-[#706f6a] uppercase font-medium bateman-letterpress">
-            04 — RESEARCH
+            03 — RESEARCH
           </div>
         </div>
 
         <div className="lg:col-span-10">
           <h2 className="font-garamond text-3xl sm:text-5xl md:text-6xl text-[#121315] font-normal tracking-[0.02em] leading-tight bateman-letterpress uppercase">
-            T<span className="text-[0.74em] uppercase">hought</span> &amp; T<span className="text-[0.74em] uppercase">echnical</span> R<span className="text-[0.74em] uppercase">esearch</span> A<span className="text-[0.74em] uppercase">rchive</span>
+            R<span className="text-[0.74em] uppercase">esearch</span> &amp; T<span className="text-[0.74em] uppercase">hought</span> A<span className="text-[0.74em] uppercase">rchive</span>
           </h2>
-          <p className="font-garamond text-lg sm:text-xl text-[#5a5b5e] mt-3 max-w-3xl">
-            Editorial quantitative research, econometrics papers, and technical market notes.
-          </p>
         </div>
       </div>
 
-      {/* Editorial Research Archive Listing (Solid Black Separator Lines) */}
+      {/* Editorial Research Archive Listing */}
       <div className="w-full space-y-12">
         {RESEARCH_ARTICLES.map((article) => (
           <div
@@ -51,14 +48,10 @@ export const ResearchSection: React.FC = () => {
                 <h3 className="font-garamond text-2xl sm:text-4xl text-[#121315] font-normal tracking-[0.02em] leading-tight bateman-letterpress uppercase group-hover:text-[#000000] transition-colors">
                   {article.title}
                 </h3>
-                <p className="font-garamond text-lg sm:text-2xl text-[#706f6a] italic mt-1">
+                <p className="font-garamond text-lg sm:text-xl text-[#706f6a] italic mt-1">
                   {article.subtitle}
                 </p>
               </div>
-
-              <span className="font-mono text-xs tracking-[0.2em] text-[#121315] uppercase border-b border-[#121315] pb-0.5 self-start lg:self-auto opacity-80 group-hover:opacity-100 transition-opacity">
-                READ RESEARCH →
-              </span>
             </div>
 
             <p className="font-garamond text-base sm:text-xl text-[#2a2b2e] leading-relaxed max-w-4xl pt-2">
