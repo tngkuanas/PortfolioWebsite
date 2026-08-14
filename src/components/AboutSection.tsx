@@ -11,14 +11,12 @@ export const AboutSection: React.FC = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Intersection Observer for Typesetting & Section Reveal
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               const tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 1.1 } });
 
-              // 1. Label typesets into position
               tl.fromTo(
                 labelRef.current,
                 { opacity: 0, x: -20 },
@@ -26,7 +24,6 @@ export const AboutSection: React.FC = () => {
                 0.1
               );
 
-              // 2. Large Heading: Clean Typesetting Staggered Reveal (100% Upright)
               const headingLines = headingRef.current?.querySelectorAll('.typeset-line');
               if (headingLines && headingLines.length > 0) {
                 tl.fromTo(
@@ -44,7 +41,6 @@ export const AboutSection: React.FC = () => {
                 );
               }
 
-              // 3. Sub-heading & Paragraph reveals
               tl.fromTo(
                 subHeadingRef.current,
                 { opacity: 0, y: 20 },
@@ -59,7 +55,6 @@ export const AboutSection: React.FC = () => {
                 0.6
               );
 
-              // 4. Right Metadata Column Staggered Typesetting
               if (metaRightRef.current) {
                 const items = metaRightRef.current.querySelectorAll('.meta-item');
                 tl.fromTo(
@@ -94,17 +89,17 @@ export const AboutSection: React.FC = () => {
       {/* Main Editorial Grid: 3-Column Asymmetric Layout */}
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 my-auto items-start z-10">
         
-        {/* COLUMN 1: Small Section Label (2 Cols) */}
+        {/* COLUMN 1: Understated Section Label */}
         <div className="lg:col-span-2 flex flex-col justify-start">
           <div 
             ref={labelRef}
-            className="font-mono text-xs sm:text-sm tracking-[0.2em] text-[#706f6a] uppercase font-medium bateman-letterpress"
+            className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase font-medium bateman-letterpress"
           >
             01 — ABOUT
           </div>
         </div>
 
-        {/* COLUMN 2: Typographic Main Statement & Broad Positioning Profile (7 Cols) */}
+        {/* COLUMN 2: Main Direct Statement */}
         <div className="lg:col-span-7 flex flex-col space-y-8 sm:space-y-10 pr-0 lg:pr-8">
           {/* Main Name Heading */}
           <h2
@@ -119,7 +114,7 @@ export const AboutSection: React.FC = () => {
             </div>
           </h2>
 
-          {/* Sub-heading Description: Quant · Investments · Trading · Data Science · AI */}
+          {/* Sub-heading Pillars */}
           <div
             ref={subHeadingRef}
             className="font-garamond text-lg sm:text-2xl md:text-3xl text-[#121315] tracking-[0.05em] leading-relaxed bateman-letterpress"
@@ -129,28 +124,25 @@ export const AboutSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Broad Positioning Profile Statement */}
+          {/* Direct Statement Profile (Clean & Direct) */}
           <div
             ref={paragraphRef}
-            className="font-garamond text-base sm:text-xl md:text-2xl text-[#2a2b2e] leading-relaxed tracking-[0.03em] space-y-6 bateman-letterpress max-w-3xl pt-2"
+            className="font-garamond text-lg sm:text-2xl text-[#2a2b2e] leading-relaxed tracking-[0.03em] bateman-letterpress max-w-3xl pt-2"
           >
             <p>
-              Computer Science student focused on quantitative research, data-driven systems and machine learning. Interested in the intersection of markets, technology and systematic decision-making.
-            </p>
-            <p className="text-sm sm:text-lg md:text-xl text-[#5a5b5e] font-normal">
-              Combining rigorous statistical methodology from the University of Malaya with institutional commodities desk deployment.
+              Computer Science student focused on quantitative research, data science and AI. Interested in markets, systematic decision-making and building data-driven systems.
             </p>
           </div>
         </div>
 
-        {/* COLUMN 3: Broad Metadata & Publication Details (Non-repetitive) */}
+        {/* COLUMN 3: Metadata Details */}
         <div 
           ref={metaRightRef}
           className="lg:col-span-3 lg:pl-6 flex flex-col space-y-8 font-garamond"
         >
           {/* Metadata Block 1: Location */}
           <div className="meta-item flex flex-col space-y-1">
-            <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
+            <span className="font-mono text-[10px] tracking-[0.2em] text-[#706f6a] uppercase">
               BASED IN
             </span>
             <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
@@ -160,7 +152,7 @@ export const AboutSection: React.FC = () => {
 
           {/* Metadata Block 2: Institution */}
           <div className="meta-item flex flex-col space-y-1">
-            <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
+            <span className="font-mono text-[10px] tracking-[0.2em] text-[#706f6a] uppercase">
               EDUCATION
             </span>
             <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
@@ -171,7 +163,7 @@ export const AboutSection: React.FC = () => {
 
           {/* Metadata Block 3: Methodology */}
           <div className="meta-item flex flex-col space-y-1">
-            <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
+            <span className="font-mono text-[10px] tracking-[0.2em] text-[#706f6a] uppercase">
               METHODOLOGY
             </span>
             <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
@@ -182,7 +174,7 @@ export const AboutSection: React.FC = () => {
 
           {/* Metadata Block 4: Core Domain */}
           <div className="meta-item flex flex-col space-y-1">
-            <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
+            <span className="font-mono text-[10px] tracking-[0.2em] text-[#706f6a] uppercase">
               CORE DOMAIN
             </span>
             <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
@@ -193,7 +185,7 @@ export const AboutSection: React.FC = () => {
 
           {/* Metadata Block 5: Corporate Desk */}
           <div className="meta-item flex flex-col space-y-1 pt-2">
-            <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
+            <span className="font-mono text-[10px] tracking-[0.2em] text-[#706f6a] uppercase">
               CURRENT AFFILIATION
             </span>
             <span className="text-xs sm:text-sm font-semibold text-[#121315] tracking-[0.1em] bateman-letterpress uppercase">

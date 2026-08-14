@@ -49,7 +49,7 @@ export const PERSONAL_INFO = {
   shortName: 'Tengku Anas',
   title: 'Computer Science Student',
   tagline: 'Quant · Data Science · AI',
-  statement: 'Computer Science student building quantitative, data, and AI systems, with real exposure to financial markets.',
+  statement: 'Computer Science student focused on quantitative research, data science and AI. Interested in markets, systematic decision-making and building data-driven systems.',
   email: 'tengkuanas04@gmail.com',
   linkedin: 'https://linkedin.com/in/tengkuanas',
   github: 'https://github.com/tngkuanas',
@@ -154,26 +154,26 @@ export const RESEARCH_ARTICLES: ResearchArticle[] = [
   {
     id: 'econometrics-deception',
     title: 'The Econometrics of Deception',
-    subtitle: 'Statistical signatures of anomaly and manipulation in market data',
+    subtitle: 'Exploring statistical anomaly detection in financial time-series data',
     year: '2025',
     tags: ['Econometrics', 'Anomaly Detection'],
-    summary: 'An exploration into Benfords law, structural breaks, and statistical tests for detecting artificial smoothing or reporting anomalies in financial time series.'
+    summary: 'Notes on Benfords law, structural breaks, and statistical tests for identifying unexpected distribution shifts in market data.'
   },
   {
     id: 'gold-decoupling',
     title: 'The Decoupling: Has Gold Broken Its Old Macro Rules?',
-    subtitle: 'Analyzing real yields, central bank purchases, and structural shifts in precious metals',
+    subtitle: 'Analyzing real yields and structural shifts in precious metals',
     year: '2025',
     tags: ['Macro', 'Commodities'],
-    summary: 'Examining why traditional inverse relationships between gold prices and US real treasury yields have weakened in recent years due to central bank reserve diversification.'
+    summary: 'Observations on why traditional inverse relationships between gold prices and US real yields have evolved due to central bank reserve flows.'
   },
   {
     id: 'jump-diffusion',
     title: 'Jump-Diffusion Models in Commodity Markets',
-    subtitle: 'Capturing tail risk and supply shock spikes in energy prices',
+    subtitle: 'Comparing continuous Brownian motion vs jump models in energy price spikes',
     year: '2024',
-    tags: ['Commodities', 'Stochastic Calculus'],
-    summary: 'Comparing standard continuous Brownian motion assumptions against Merton jump-diffusion models for pricing energy volatility and managing physical supply disruption risk.'
+    tags: ['Commodities', 'Stochastic Modeling'],
+    summary: 'Comparing standard continuous price models against Merton jump-diffusion models for handling rapid supply shock volatility.'
   }
 ];
 
@@ -181,8 +181,8 @@ export const EXPERIENCES: ExperienceItem[] = [
   {
     id: 'petco',
     period: '2026',
-    company: 'PETCO TRADING (PETRONAS)',
-    role: 'Data Analytics Intern',
+    company: 'PETCO TRADING',
+    role: 'QUANTITATIVE & DATA SCIENCE INTERN',
     location: 'Kuala Lumpur',
     summary: 'Worked on quantitative commodity balance models, refining yield tracking, and market analytics for the trading desk.'
   },
@@ -190,7 +190,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     id: 'um-dac',
     period: '2024 — 2025',
     company: 'UM DATA ANALYTICS CLUB',
-    role: 'Technical Lead',
+    role: 'TECHNICAL LEAD',
     location: 'University of Malaya',
     summary: 'Led technical workshops on data analysis, machine learning fundamentals, and quantitative modeling projects for student developers.'
   }

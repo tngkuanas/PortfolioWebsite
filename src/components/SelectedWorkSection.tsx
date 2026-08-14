@@ -34,19 +34,19 @@ export const SelectedWorkSection: React.FC = () => {
       {/* Section Header Grid */}
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-16 items-start">
         <div className="lg:col-span-2">
-          <div className="font-mono text-xs sm:text-sm tracking-[0.2em] text-[#706f6a] uppercase font-medium bateman-letterpress">
+          <div className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase font-medium bateman-letterpress">
             02 — WORK
           </div>
         </div>
 
         <div className="lg:col-span-10">
           <h2 className="font-garamond text-3xl sm:text-5xl md:text-6xl text-[#121315] font-normal tracking-[0.02em] leading-tight bateman-letterpress uppercase">
-            S<span className="text-[0.74em] uppercase">elected</span> W<span className="text-[0.74em] uppercase">ork</span> &amp; M<span className="text-[0.74em] uppercase">odels</span>
+            W<span className="text-[0.74em] uppercase">ork</span>
           </h2>
         </div>
       </div>
 
-      {/* Projects List (Extremely Sparse & Typographic with Integrated Data Visualizations) */}
+      {/* Projects List (Hover -> Visual Reveal, Click -> Case Study Modal) */}
       <div className="w-full space-y-16">
         {SELECTED_PROJECTS.map((project) => (
           <div
@@ -64,7 +64,7 @@ export const SelectedWorkSection: React.FC = () => {
               </span>
             </div>
 
-            {/* Title & Short Summary */}
+            {/* Title & Visual Interactive Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
               <div className="lg:col-span-7 space-y-3">
                 <h3 className="font-garamond text-3xl sm:text-5xl text-[#121315] font-normal tracking-[0.02em] leading-tight bateman-letterpress-heading uppercase group-hover:text-[#000000] transition-colors">
@@ -73,15 +73,10 @@ export const SelectedWorkSection: React.FC = () => {
                 <p className="font-garamond text-base sm:text-xl text-[#2a2b2e] leading-relaxed max-w-2xl">
                   {project.shortDescription}
                 </p>
-                <div className="pt-2">
-                  <span className="font-mono text-xs tracking-[0.18em] text-[#121315] uppercase border-b border-[#121315] pb-0.5 group-hover:font-bold transition-all">
-                    EXPLORE CASE STUDY →
-                  </span>
-                </div>
               </div>
 
-              {/* Data Visualization Preview Component */}
-              <div className="lg:col-span-5">
+              {/* Data Visualization Component with Hover Effect */}
+              <div className="lg:col-span-5 transform group-hover:scale-[1.02] transition-transform duration-300">
                 {renderVisualForProject(project.id)}
               </div>
             </div>
@@ -97,7 +92,7 @@ export const SelectedWorkSection: React.FC = () => {
             <div className="flex items-start justify-between border-b border-[#121315] pb-6">
               <div>
                 <span className="font-mono text-xs tracking-[0.2em] text-[#706f6a] uppercase">
-                  CASE STUDY REPO — {activeModalProject.number}
+                  CASE STUDY — {activeModalProject.number}
                 </span>
                 <h3 className="font-garamond text-3xl sm:text-5xl font-normal uppercase text-[#121315] bateman-letterpress-heading mt-1">
                   {activeModalProject.title}
@@ -115,7 +110,7 @@ export const SelectedWorkSection: React.FC = () => {
               </button>
             </div>
 
-            {/* Embedded Visual Storyteller Chart */}
+            {/* Embedded Visual Chart */}
             <div className="w-full my-6">
               {renderVisualForProject(activeModalProject.id)}
             </div>
@@ -167,7 +162,7 @@ export const SelectedWorkSection: React.FC = () => {
             <div className="space-y-6 pt-2">
               <div className="p-6 border border-[#121315] bg-[#121315]/[0.03]">
                 <span className="font-mono text-xs tracking-[0.18em] text-[#121315] uppercase font-bold">
-                  05. RESULTS &amp; OUTCOMES
+                  05. RESULTS
                 </span>
                 <p className="text-base sm:text-xl text-[#121315] font-medium leading-relaxed mt-2">
                   {activeModalProject.caseStudy.results}
@@ -190,7 +185,7 @@ export const SelectedWorkSection: React.FC = () => {
                 onClick={() => setActiveModalProject(null)}
                 className="px-6 py-2.5 border border-[#121315] text-[#121315] hover:bg-[#121315] hover:text-[#f7f6f2] font-mono text-xs tracking-[0.2em] uppercase transition-all"
               >
-                CLOSE CASE STUDY
+                CLOSE
               </button>
             </div>
           </div>

@@ -12,7 +12,6 @@ export const HeaderNav: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Precise Intersection Observer for Clean 7 Sections Navigation
     const sections = ['about', 'work', 'research', 'experience', 'lab', 'now', 'contact'];
     
     const observer = new IntersectionObserver(
@@ -41,13 +40,12 @@ export const HeaderNav: React.FC = () => {
   }, []);
 
   const navItems = [
-    { id: 'about', label: '01 ABOUT' },
-    { id: 'work', label: '02 WORK' },
-    { id: 'research', label: '03 RESEARCH' },
-    { id: 'experience', label: '04 EXPERIENCE' },
-    { id: 'lab', label: '05 LAB' },
-    { id: 'now', label: '06 NOW' },
-    { id: 'contact', label: '07 CONTACT' },
+    { id: 'about', num: '01', label: 'ABOUT' },
+    { id: 'work', num: '02', label: 'WORK' },
+    { id: 'research', num: '03', label: 'RESEARCH' },
+    { id: 'experience', num: '04', label: 'EXPERIENCE' },
+    { id: 'lab', num: '05', label: 'LAB' },
+    { id: 'contact', num: '06', label: 'CONTACT' },
   ];
 
   return (
@@ -74,19 +72,20 @@ export const HeaderNav: React.FC = () => {
           </div>
         </a>
 
-        {/* Center: Section Navigation Links */}
+        {/* Center: Understated Navigation Links */}
         <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-xs sm:text-sm tracking-[0.16em] font-medium">
           {navItems.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
-              className={`transition-colors duration-200 py-1 uppercase ${
+              className={`transition-colors duration-200 py-1 uppercase flex items-center space-x-1.5 ${
                 activeSection === item.id 
                   ? 'text-[#ffffff] font-bold border-b-2 border-[#ffffff]' 
                   : 'text-[#a0a4b0] hover:text-[#ffffff]'
               }`}
             >
-              {item.label}
+              <span className="font-mono text-[9px] text-[#706f6a] tracking-normal font-normal">{item.num}</span>
+              <span>{item.label}</span>
             </a>
           ))}
         </nav>
