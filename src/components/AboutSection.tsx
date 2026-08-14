@@ -91,7 +91,7 @@ export const AboutSection: React.FC = () => {
       ref={sectionRef}
       className="min-h-screen w-full relative bateman-paper-texture py-24 sm:py-32 px-8 sm:px-14 md:px-20 lg:px-24 flex flex-col justify-between overflow-hidden selection:bg-[#121315] selection:text-[#f7f6f2]"
     >
-      {/* Main Editorial Grid: 3-Column Asymmetric Layout (Pure Straight Upright Typography) */}
+      {/* Main Editorial Grid: 3-Column Asymmetric Layout */}
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 my-auto items-start z-10">
         
         {/* COLUMN 1: Small Section Label (2 Cols) */}
@@ -106,7 +106,7 @@ export const AboutSection: React.FC = () => {
 
         {/* COLUMN 2: Typographic Main Statement & Broad Positioning Profile (7 Cols) */}
         <div className="lg:col-span-7 flex flex-col space-y-8 sm:space-y-10 pr-0 lg:pr-8">
-          {/* Main Name Heading (Pure Upright Garamond) */}
+          {/* Main Name Heading */}
           <h2
             ref={headingRef}
             className="font-garamond text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-[0.03em] leading-[0.95] text-[#121315] bateman-letterpress-heading uppercase"
@@ -119,13 +119,13 @@ export const AboutSection: React.FC = () => {
             </div>
           </h2>
 
-          {/* Sub-heading Description: Quant · Data Science · AI */}
+          {/* Sub-heading Description: Computer Science / Quant · Data Science · AI */}
           <div
             ref={subHeadingRef}
             className="font-garamond text-lg sm:text-2xl md:text-3xl text-[#121315] tracking-[0.05em] leading-relaxed bateman-letterpress"
           >
             <p>
-              C<span className="text-[0.74em] uppercase">omputer</span> S<span className="text-[0.74em] uppercase">cience</span> &nbsp;·&nbsp; D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span>
+              C<span className="text-[0.74em] uppercase">omputer</span> S<span className="text-[0.74em] uppercase">cience</span>
             </p>
             <p className="mt-1">
               Q<span className="text-[0.74em] uppercase">uant</span> &nbsp;·&nbsp; D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span> &nbsp;·&nbsp; AI
@@ -138,7 +138,7 @@ export const AboutSection: React.FC = () => {
             className="font-garamond text-base sm:text-xl md:text-2xl text-[#2a2b2e] leading-relaxed tracking-[0.03em] space-y-6 bateman-letterpress max-w-3xl pt-2"
           >
             <p>
-              Working at the intersection of quantitative research, data science, artificial intelligence, and financial markets. Building statistical models, forecasting systems, algorithmic analytics, and data-driven decision tools across complex real-world problems. Experience spans quantitative modelling and applied machine learning, with a focus on translating data into systematic, actionable decisions.
+              Computer Science student focused on quantitative research, data-driven systems and machine learning. Interested in the intersection of markets, technology and systematic decision-making.
             </p>
             <p className="text-sm sm:text-lg md:text-xl text-[#5a5b5e] font-normal">
               Combining rigorous statistical methodology from the University of Malaya with institutional commodities desk deployment.
@@ -154,7 +154,7 @@ export const AboutSection: React.FC = () => {
           {/* Metadata Block 1: Location */}
           <div className="meta-item flex flex-col space-y-1">
             <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
-              LOCATION
+              BASED IN
             </span>
             <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
               K<span className="text-[0.74em] uppercase">uala</span> L<span className="text-[0.74em] uppercase">umpur</span>, M<span className="text-[0.74em] uppercase">alaysia</span>
@@ -164,44 +164,37 @@ export const AboutSection: React.FC = () => {
           {/* Metadata Block 2: Institution */}
           <div className="meta-item flex flex-col space-y-1">
             <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
-              ALMA MATER
+              EDUCATION
             </span>
             <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
-              U<span className="text-[0.74em] uppercase">niversity of</span> M<span className="text-[0.74em] uppercase">alaya</span>
+              U<span className="text-[0.74em] uppercase">niversity of</span> M<span className="text-[0.74em] uppercase">alaya</span><br />
+              <span className="text-xs sm:text-sm text-[#706f6a] font-normal">B.S<span className="text-[0.74em] uppercase">c</span>. C<span className="text-[0.74em] uppercase">omputer</span> S<span className="text-[0.74em] uppercase">cience</span> — D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span></span>
             </span>
           </div>
 
-          {/* Metadata Block 3: Primary Disciplines */}
+          {/* Metadata Block 3: Focus */}
           <div className="meta-item flex flex-col space-y-1">
             <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
-              DISCIPLINE
+              FOCUS
             </span>
             <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
-              C<span className="text-[0.74em] uppercase">omputer</span> S<span className="text-[0.74em] uppercase">cience</span> &nbsp;/&nbsp; D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span>
+              Q<span className="text-[0.74em] uppercase">uantitative</span> R<span className="text-[0.74em] uppercase">esearch</span><br />
+              D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span> &nbsp;·&nbsp; AI
             </span>
           </div>
 
-          {/* Metadata Block 4: Specialization */}
-          <div className="meta-item flex flex-col space-y-1">
-            <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
-              SPECIALIZATION
-            </span>
-            <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
-              Q<span className="text-[0.74em] uppercase">uant</span> &nbsp;/&nbsp; D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span> &nbsp;/&nbsp; AI
-            </span>
-          </div>
-
-          {/* Metadata Block 5: Interests */}
+          {/* Metadata Block 4: Interests */}
           <div className="meta-item flex flex-col space-y-1">
             <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
               INTERESTS
             </span>
             <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
-              T<span className="text-[0.74em] uppercase">rading</span> &nbsp;/&nbsp; I<span className="text-[0.74em] uppercase">nvestments</span> &nbsp;/&nbsp; M<span className="text-[0.74em] uppercase">achine</span> L<span className="text-[0.74em] uppercase">earning</span>
+              M<span className="text-[0.74em] uppercase">arkets</span> &nbsp;·&nbsp; I<span className="text-[0.74em] uppercase">nvestments</span><br />
+              M<span className="text-[0.74em] uppercase">achine</span> L<span className="text-[0.74em] uppercase">earning</span> &nbsp;·&nbsp; T<span className="text-[0.74em] uppercase">echnology</span>
             </span>
           </div>
 
-          {/* Metadata Block 6: Corporate Desk */}
+          {/* Metadata Block 5: Corporate Desk */}
           <div className="meta-item flex flex-col space-y-1 pt-2">
             <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
               CURRENT AFFILIATION
