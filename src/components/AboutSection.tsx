@@ -143,7 +143,7 @@ export const AboutSection: React.FC = () => {
           </div>
         </div>
 
-        {/* COLUMN 3: Broad Metadata & Publication Details (3 Cols) */}
+        {/* COLUMN 3: Broad Metadata & Publication Details (Non-repetitive) */}
         <div 
           ref={metaRightRef}
           className="lg:col-span-3 lg:pl-6 flex flex-col space-y-8 font-garamond"
@@ -165,29 +165,29 @@ export const AboutSection: React.FC = () => {
             </span>
             <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
               U<span className="text-[0.74em] uppercase">niversity of</span> M<span className="text-[0.74em] uppercase">alaya</span><br />
-              <span className="text-xs sm:text-sm text-[#706f6a] font-normal">B.S<span className="text-[0.74em] uppercase">c</span>. C<span className="text-[0.74em] uppercase">omputer</span> S<span className="text-[0.74em] uppercase">cience</span> — D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span></span>
+              <span className="text-xs sm:text-sm text-[#706f6a] font-normal">B.S<span className="text-[0.74em] uppercase">c</span>. C<span className="text-[0.74em] uppercase">omputer</span> S<span className="text-[0.74em] uppercase">cience</span> (D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span>)</span>
             </span>
           </div>
 
-          {/* Metadata Block 3: Focus */}
+          {/* Metadata Block 3: Methodology */}
           <div className="meta-item flex flex-col space-y-1">
             <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
-              FOCUS
+              METHODOLOGY
             </span>
             <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
-              Q<span className="text-[0.74em] uppercase">uant</span> &nbsp;·&nbsp; I<span className="text-[0.74em] uppercase">nvestments</span> &nbsp;·&nbsp; T<span className="text-[0.74em] uppercase">rading</span><br />
-              D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span> &nbsp;·&nbsp; AI
+              Q<span className="text-[0.74em] uppercase">uantitative</span> R<span className="text-[0.74em] uppercase">esearch</span><br />
+              M<span className="text-[0.74em] uppercase">achine</span> L<span className="text-[0.74em] uppercase">earning</span>
             </span>
           </div>
 
-          {/* Metadata Block 4: Interests */}
+          {/* Metadata Block 4: Core Domain */}
           <div className="meta-item flex flex-col space-y-1">
             <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
-              INTERESTS
+              CORE DOMAIN
             </span>
             <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
-              M<span className="text-[0.74em] uppercase">arkets</span> &nbsp;·&nbsp; T<span className="text-[0.74em] uppercase">echnology</span><br />
-              S<span className="text-[0.74em] uppercase">ystematic</span> D<span className="text-[0.74em] uppercase">ecision</span> M<span className="text-[0.74em] uppercase">aking</span>
+              F<span className="text-[0.74em] uppercase">inancial</span> M<span className="text-[0.74em] uppercase">arkets</span><br />
+              S<span className="text-[0.74em] uppercase">ystematic</span> S<span className="text-[0.74em] uppercase">ystems</span>
             </span>
           </div>
 
