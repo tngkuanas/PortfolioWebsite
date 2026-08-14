@@ -119,7 +119,7 @@ export const AboutSection: React.FC = () => {
             </div>
           </h2>
 
-          {/* Sub-heading Description: Computer Science / Quant · Data Science · AI */}
+          {/* Sub-heading Description: Computer Science / Quant · Investments · Trading · Data Science · AI */}
           <div
             ref={subHeadingRef}
             className="font-garamond text-lg sm:text-2xl md:text-3xl text-[#121315] tracking-[0.05em] leading-relaxed bateman-letterpress"
@@ -128,7 +128,7 @@ export const AboutSection: React.FC = () => {
               C<span className="text-[0.74em] uppercase">omputer</span> S<span className="text-[0.74em] uppercase">cience</span>
             </p>
             <p className="mt-1">
-              Q<span className="text-[0.74em] uppercase">uant</span> &nbsp;·&nbsp; D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span> &nbsp;·&nbsp; AI
+              Q<span className="text-[0.74em] uppercase">uant</span> &nbsp;·&nbsp; I<span className="text-[0.74em] uppercase">nvestments</span> &nbsp;·&nbsp; T<span className="text-[0.74em] uppercase">rading</span> &nbsp;·&nbsp; D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span> &nbsp;·&nbsp; AI
             </p>
           </div>
 
@@ -172,13 +172,13 @@ export const AboutSection: React.FC = () => {
             </span>
           </div>
 
-          {/* Metadata Block 3: Focus */}
+          {/* Metadata Block 3: Focus (The 5 Key Pillars) */}
           <div className="meta-item flex flex-col space-y-1">
             <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
               FOCUS
             </span>
             <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
-              Q<span className="text-[0.74em] uppercase">uantitative</span> R<span className="text-[0.74em] uppercase">esearch</span><br />
+              Q<span className="text-[0.74em] uppercase">uant</span> &nbsp;·&nbsp; I<span className="text-[0.74em] uppercase">nvestments</span> &nbsp;·&nbsp; T<span className="text-[0.74em] uppercase">rading</span><br />
               D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span> &nbsp;·&nbsp; AI
             </span>
           </div>
@@ -189,8 +189,8 @@ export const AboutSection: React.FC = () => {
               INTERESTS
             </span>
             <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
-              M<span className="text-[0.74em] uppercase">arkets</span> &nbsp;·&nbsp; I<span className="text-[0.74em] uppercase">nvestments</span><br />
-              M<span className="text-[0.74em] uppercase">achine</span> L<span className="text-[0.74em] uppercase">earning</span> &nbsp;·&nbsp; T<span className="text-[0.74em] uppercase">echnology</span>
+              M<span className="text-[0.74em] uppercase">arkets</span> &nbsp;·&nbsp; T<span className="text-[0.74em] uppercase">echnology</span><br />
+              S<span className="text-[0.74em] uppercase">ystematic</span> D<span className="text-[0.74em] uppercase">ecision</span> M<span className="text-[0.74em] uppercase">aking</span>
             </span>
           </div>
 
