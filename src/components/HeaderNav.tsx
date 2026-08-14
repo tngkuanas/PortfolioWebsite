@@ -48,8 +48,8 @@ export const HeaderNav: React.FC = () => {
           : '-translate-y-full opacity-0 pointer-events-none'
       }`}
     >
-      <div className="w-full px-8 sm:px-14 md:px-20 lg:px-24 flex items-center justify-between font-mono">
-        {/* Far Left: Logo Stamp + Name */}
+      <div className="w-full px-8 sm:px-14 md:px-20 lg:px-24 flex items-center justify-between font-garamond">
+        {/* Far Left: Logo Stamp + Name (Garamond Serif) */}
         <a 
           href="#hero" 
           className="flex items-center space-x-3.5 group text-left"
@@ -58,14 +58,14 @@ export const HeaderNav: React.FC = () => {
             TA
           </div>
           <div>
-            <p className="text-xs sm:text-sm tracking-[0.16em] font-bold uppercase text-[#ffffff]">
+            <p className="text-sm sm:text-base tracking-[0.18em] font-semibold uppercase text-[#ffffff]">
               TENGKU ANAS
             </p>
           </div>
         </a>
 
-        {/* Center: Section Navigation Links (High-Clarity Clean Font & Spacing) */}
-        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-xs tracking-[0.12em] font-medium">
+        {/* Center: Section Navigation Links (Garamond Serif, Sharp & Legible) */}
+        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-xs sm:text-sm tracking-[0.16em] font-medium">
           {navItems.map((item) => (
             <a
               key={item.id}
@@ -81,19 +81,19 @@ export const HeaderNav: React.FC = () => {
           ))}
         </nav>
 
-        {/* Far Right: Contact Button */}
+        {/* Far Right: Contact Button (Garamond Serif) */}
         <div className="flex items-center">
           <a
             href="#contact"
-            className="px-4 py-1.5 border border-[#ffffff] text-[#ffffff] hover:bg-[#ffffff] hover:text-[#0e0f11] text-xs tracking-[0.16em] font-semibold uppercase transition-all"
+            className="px-4 py-1.5 border border-[#ffffff] text-[#ffffff] hover:bg-[#ffffff] hover:text-[#0e0f11] text-xs sm:text-sm tracking-[0.2em] font-semibold uppercase transition-all"
           >
             CONTACT
           </a>
         </div>
       </div>
 
-      {/* Mobile nav bar strip (High-Clarity Font) */}
-      <div className="lg:hidden flex overflow-x-auto whitespace-nowrap space-x-5 px-8 pt-2 pb-1 border-t border-[#22242a] mt-2 bg-[#0e0f11] scrollbar-none text-xs tracking-[0.12em] text-[#a0a4b0]">
+      {/* Mobile nav bar strip (Garamond Serif) */}
+      <div className="lg:hidden flex overflow-x-auto whitespace-nowrap space-x-5 px-8 pt-2 pb-1 border-t border-[#22242a] mt-2 bg-[#0e0f11] scrollbar-none text-xs sm:text-sm tracking-[0.15em] text-[#a0a4b0] font-garamond">
         {navItems.map((item) => (
           <a
             key={item.id}
