@@ -6,10 +6,23 @@
     --paper-stock: #f7f6f2;
   }
 
-  html, body {
+  html {
     background-color: var(--paper-stock);
     color: #0e0f11;
     overflow-x: hidden;
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: transparent;
+    color: #0e0f11;
+    overflow-x: hidden;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
   }
 }
 
