@@ -18,8 +18,8 @@ export const ContactSection: React.FC = () => {
       {/* Section Header Grid */}
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-16 items-start">
         <div className="lg:col-span-2">
-          <div className="font-mono text-xs sm:text-sm tracking-[0.2em] text-[#706f6a] uppercase font-medium bateman-letterpress">
-            07 — CONTACT
+          <div className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase font-medium bateman-letterpress">
+            06 — CONTACT
           </div>
         </div>
 

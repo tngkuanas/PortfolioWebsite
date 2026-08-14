@@ -65,7 +65,7 @@ export const SELECTED_PROJECTS: ProjectItem[] = [
     subtitle: 'Statistical Jump Model · Portfolio Allocation · Backtesting',
     category: 'Quantitative Finance',
     tags: ['Jump Model', 'Regime Switching', 'Portfolio Allocation'],
-    shortDescription: 'Identifies shifting market volatility regimes across asset classes to dynamically adjust portfolio risk exposure.',
+    shortDescription: 'Detecting cross-asset volatility regimes and testing whether regime-aware allocation improves portfolio risk.',
     caseStudy: {
       problem: 'Asset correlations and volatility profiles change abruptly during market stress, causing standard static allocation models to fail.',
       data: 'Daily historical prices, implied volatility indices, and cross-asset correlation metrics across equities and commodities.',
@@ -83,7 +83,7 @@ export const SELECTED_PROJECTS: ProjectItem[] = [
     subtitle: 'Macro Econometrics · FX Pressure Index · Time-Series',
     category: 'Macro Analytics',
     tags: ['Econometrics', 'FX Index', 'Time-Series'],
-    shortDescription: 'Tracks exchange rate stress indicators and macro imbalances across developing Asian currency markets.',
+    shortDescription: 'Building an early-warning model for currency pressure using macroeconomic and commodity indicators.',
     caseStudy: {
       problem: 'Detecting early warning signals of currency pressure in emerging Asian markets before capital flight accelerates.',
       data: 'Foreign exchange reserves, central bank interest rate differentials, trade balances, and spot/forward FX rates.',
@@ -101,7 +101,7 @@ export const SELECTED_PROJECTS: ProjectItem[] = [
     subtitle: 'Portfolio Risk · Factor Analytics · Automated Tracking',
     category: 'Portfolio Analytics',
     tags: ['Risk Analytics', 'Factor Exposure', 'Local Workspace'],
-    shortDescription: 'Consolidates multi-asset portfolio holdings, factor exposures, and risk metrics into a unified local workspace.',
+    shortDescription: 'A local analytics system for tracking portfolio performance, exposure and risk.',
     caseStudy: {
       problem: 'Retail portfolio tools lack transparent factor decomposition and custom downside risk analytics.',
       data: 'API integrations for price feeds, fundamental financial data, and benchmark indices.',
