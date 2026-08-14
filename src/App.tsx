@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import Lenis from 'lenis';
+import { useState } from 'react';
 import { HeaderNav } from './components/HeaderNav';
 import { HeroCard } from './components/HeroCard';
 import { AboutSection } from './components/AboutSection';
@@ -17,75 +16,6 @@ export function App() {
   const [selectedCaseStudyProject, setSelectedCaseStudyProject] = useState<ProjectItem>(
     SELECTED_PROJECTS[0]
   );
-
-  // Initialize Lenis with Active Section Gravitational Magnetism Snap Observer
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.0,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 0.9,
-      touchMultiplier: 1.4,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    // Section Gravitational Magnetism: Automatically gravitates to closest section top when user stops scrolling
-    let isSnapping = false;
-    let snapTimeout: ReturnType<typeof setTimeout> | null = null;
-
-    const sections = ['hero', 'about', 'work', 'case-studies', 'research', 'experience', 'lab', 'now', 'contact'];
-
-    const handleScroll = () => {
-      if (isSnapping) return;
-
-      if (snapTimeout) {
-        clearTimeout(snapTimeout);
-      }
-
-      snapTimeout = setTimeout(() => {
-        const currentScrollY = lenis.scroll;
-        let closestSection: HTMLElement | null = null;
-        let minDistance = Infinity;
-
-        sections.forEach((id) => {
-          const el = document.getElementById(id);
-          if (el) {
-            const distance = Math.abs(currentScrollY - el.offsetTop);
-            if (distance < minDistance) {
-              minDistance = distance;
-              closestSection = el;
-            }
-          }
-        });
-
-        // If user stopped scrolling within 350px of a section top, snap smoothly to it
-        if (closestSection && minDistance > 30 && minDistance < 400) {
-          isSnapping = true;
-          lenis.scrollTo(closestSection, {
-            duration: 0.8,
-            onComplete: () => {
-              isSnapping = false;
-            },
-          });
-        }
-      }, 140);
-    };
-
-    lenis.on('scroll', handleScroll);
-
-    return () => {
-      if (snapTimeout) clearTimeout(snapTimeout);
-      lenis.destroy();
-    };
-  }, []);
 
   const handleSelectProjectForCaseStudy = (project: ProjectItem) => {
     setSelectedCaseStudyProject(project);
