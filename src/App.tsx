@@ -1,31 +1,62 @@
+import { useState } from 'react';
 import { HeaderNav } from './components/HeaderNav';
 import { HeroCard } from './components/HeroCard';
-import { ExperienceSection } from './components/ExperienceSection';
-import { ProjectsSection } from './components/ProjectsSection';
-import { ResearchSection } from './components/ResearchSection';
 import { AboutSection } from './components/AboutSection';
+import { SelectedWorkSection } from './components/SelectedWorkSection';
+import { CaseStudiesSection } from './components/CaseStudiesSection';
+import { ResearchSection } from './components/ResearchSection';
+import { ExperienceSection } from './components/ExperienceSection';
+import { LabSection } from './components/LabSection';
+import { NowSection } from './components/NowSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { SELECTED_PROJECTS, type ProjectItem } from './data/portfolioData';
 
 export function App() {
+  const [selectedCaseStudyProject, setSelectedCaseStudyProject] = useState<ProjectItem>(
+    SELECTED_PROJECTS[0]
+  );
+
+  const handleSelectProjectForCaseStudy = (project: ProjectItem) => {
+    setSelectedCaseStudyProject(project);
+  };
+
   return (
-    <div className="min-h-screen bg-[#f7f5f0] text-[#0f1115] transition-colors duration-300 relative selection:bg-[#0f1115] selection:text-[#f7f5f0]">
-      {/* Essential Top Header Bar */}
+    <div className="min-h-screen bateman-paper-texture text-[#121315] selection:bg-[#121315] selection:text-[#f7f6f2]">
+      {/* Essential Navigation Header Bar */}
       <HeaderNav />
 
       {/* Hero Digital Business Card */}
       <HeroCard />
 
-      {/* Desk Portfolio Sections */}
+      {/* Editorial Master Sections Flow */}
       <main>
-        <ExperienceSection />
-        <ProjectsSection />
-        <ResearchSection />
+        {/* 01 — ABOUT */}
         <AboutSection />
+
+        {/* 02 — SELECTED WORK */}
+        <SelectedWorkSection onSelectProjectForCaseStudy={handleSelectProjectForCaseStudy} />
+
+        {/* 03 — CASE STUDIES */}
+        <CaseStudiesSection selectedProject={selectedCaseStudyProject} />
+
+        {/* 04 — RESEARCH */}
+        <ResearchSection />
+
+        {/* 05 — EXPERIENCE */}
+        <ExperienceSection />
+
+        {/* 06 — LAB */}
+        <LabSection />
+
+        {/* 07 — NOW */}
+        <NowSection />
+
+        {/* 08 — CONTACT */}
         <ContactSection />
       </main>
 
-      {/* Wall St Registry Footer */}
+      {/* Editorial Footer */}
       <Footer />
     </div>
   );

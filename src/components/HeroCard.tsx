@@ -3,7 +3,7 @@ import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const HeroCard: React.FC = () => {
   const handleScrollClick = () => {
-    const nextSection = document.getElementById('experience');
+    const nextSection = document.getElementById('about');
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -13,7 +13,7 @@ export const HeroCard: React.FC = () => {
     <section 
       id="hero" 
       onClick={handleScrollClick}
-      className="h-[100vh] h-[100svh] w-screen relative flex flex-col justify-between p-8 sm:p-14 md:p-20 lg:p-24 bateman-paper-texture overflow-hidden select-none cursor-pointer border-b border-[#e3ded5]"
+      className="h-[100vh] h-[100svh] w-screen relative flex flex-col justify-between p-8 sm:p-14 md:p-20 lg:p-24 bateman-paper-texture overflow-hidden cursor-pointer selection:bg-[#121315] selection:text-[#f7f6f2]"
     >
       {/* TOP REGION: Phone Top Left, Company Top Right */}
       <div className="flex justify-between items-start z-10 w-full pt-2 font-garamond">
@@ -36,21 +36,21 @@ export const HeroCard: React.FC = () => {
         </div>
       </div>
 
-      {/* CENTER REGION: Name & Position */}
+      {/* CENTER REGION: Name & Position (Quant · Data Science) */}
       <div className="my-auto py-8 z-10 text-center w-full max-w-6xl mx-auto space-y-0.5 sm:space-y-1 font-garamond">
         {/* Name: Tengku ANAS */}
         <h1 className="text-5xl sm:text-7xl md:text-[5.25rem] lg:text-[6rem] font-normal tracking-[0.01em] leading-tight bateman-letterpress-heading">
           T<span className="text-[0.68em] uppercase tracking-normal">engku</span> ANAS
         </h1>
 
-        {/* Position: Quant / Data Scientist */}
+        {/* Position: Quant · Data Science */}
         <p className="text-xl sm:text-3xl md:text-[2.5rem] lg:text-[3rem] font-normal tracking-[0.02em] bateman-letterpress">
-          Q<span className="text-[0.68em] uppercase">uant</span> / D<span className="text-[0.68em] uppercase">ata</span> S<span className="text-[0.68em] uppercase">cientist</span>
+          Q<span className="text-[0.68em] uppercase">uant</span> &nbsp;·&nbsp; D<span className="text-[0.68em] uppercase">ata</span> S<span className="text-[0.68em] uppercase">cience</span>
         </p>
       </div>
 
-      {/* BOTTOM REGION: 4 Distinct Components Distributed End-to-End (Slightly More Bigger) */}
-      <div className="z-10 w-full font-garamond border-t border-[#c8c3b4]/40 pt-4 pb-2">
+      {/* BOTTOM REGION: 4 Distinct Components Distributed End-to-End */}
+      <div className="z-10 w-full font-garamond pt-4 pb-2">
         <div className="w-full flex flex-col md:flex-row justify-between items-center md:items-end text-base sm:text-[1.4rem] md:text-[1.7rem] lg:text-[2rem] tracking-[0.04em] bateman-letterpress gap-2 md:gap-0">
           {/* Component 1: Address */}
           <span className="text-left font-medium">

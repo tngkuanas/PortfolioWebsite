@@ -1,138 +1,71 @@
-import React, { useState } from 'react';
-import { ChevronRight } from 'lucide-react';
-import { RESEARCH_TOPICS } from '../data/portfolioData';
-import type { ResearchInterest } from '../types/portfolio';
+import React from 'react';
+import { RESEARCH_ARTICLES } from '../data/portfolioData';
 
 export const ResearchSection: React.FC = () => {
-  const [selectedTopic, setSelectedTopic] = useState<ResearchInterest>(RESEARCH_TOPICS[0]);
-
   return (
-    <section id="research" className="py-24 border-t border-[#e3ded5] bg-[#faf8f5] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-[#0f1115]">
-          <div>
-            <div className="flex items-center space-x-2 mb-2 font-mono text-xs tracking-widest uppercase text-[#626773]">
-              <span>[ SECTION III ]</span>
-              <span>·</span>
-              <span>METHODOLOGY & THEORETICAL FOUNDATIONS</span>
-            </div>
-            <h2 className="font-serif-custom text-3xl sm:text-5xl font-medium text-[#0f1115] tracking-tight">
-              Research & Core Focus
-            </h2>
-          </div>
-          <div className="mt-4 md:mt-0 font-mono text-xs text-[#626773] text-right">
-            <p>QUANTITATIVE MODEL MATRIX</p>
-            <p className="text-[10px]">TAP ANY TOPIC TO INSPECT FORMULATION</p>
+    <section
+      id="research"
+      className="min-h-screen w-full relative bateman-paper-texture py-24 sm:py-32 px-8 sm:px-14 md:px-20 lg:px-24 flex flex-col justify-between overflow-hidden selection:bg-[#121315] selection:text-[#f7f6f2]"
+    >
+      {/* Section Header Grid */}
+      <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-16 items-start">
+        <div className="lg:col-span-2">
+          <div className="font-mono text-xs sm:text-sm tracking-[0.2em] text-[#706f6a] uppercase font-medium bateman-letterpress">
+            04 — RESEARCH
           </div>
         </div>
 
-        {/* Two-Column Interactive Matrix */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          
-          {/* Left Column: Topic Selection Cards */}
-          <div className="lg:col-span-5 space-y-3">
-            {RESEARCH_TOPICS.map((topic, idx) => (
-              <div
-                key={topic.id}
-                onClick={() => setSelectedTopic(topic)}
-                className={`p-5 border cursor-pointer transition-all duration-200 flex justify-between items-center ${
-                  selectedTopic.id === topic.id
-                    ? 'border-[#0f1115] bg-white card-engraved-edge'
-                    : 'border-[#e3ded5] hover:border-[#9e8b65] bg-white/40'
-                }`}
-              >
-                <div className="flex items-center space-x-4">
-                  <span className="font-mono text-xs font-bold text-[#626773]">
-                    0{idx + 1}.
+        <div className="lg:col-span-10">
+          <h2 className="font-garamond text-3xl sm:text-5xl md:text-6xl text-[#121315] font-normal tracking-[0.02em] leading-tight bateman-letterpress uppercase">
+            T<span className="text-[0.74em] uppercase">hought</span> &amp; T<span className="text-[0.74em] uppercase">echnical</span> R<span className="text-[0.74em] uppercase">esearch</span> A<span className="text-[0.74em] uppercase">rchive</span>
+          </h2>
+          <p className="font-garamond text-lg sm:text-xl text-[#5a5b5e] mt-3 max-w-3xl">
+            Editorial quantitative research, econometrics papers, and technical market notes.
+          </p>
+        </div>
+      </div>
+
+      {/* Editorial Research Archive Listing */}
+      <div className="w-full space-y-12">
+        {RESEARCH_ARTICLES.map((article) => (
+          <div
+            key={article.id}
+            className="group w-full border-b border-[#d8d3c4] pb-10 flex flex-col space-y-4"
+          >
+            <div className="flex items-center space-x-4">
+              <span className="font-mono text-xs tracking-[0.2em] text-[#706f6a] uppercase">
+                {article.year}
+              </span>
+              <span className="w-4 h-[1px] bg-[#d8d3c4]" />
+              <div className="flex flex-wrap gap-2 font-mono text-[10px] tracking-[0.14em] text-[#5a5b5e]">
+                {article.tags.map((t, idx) => (
+                  <span key={idx} className="uppercase">
+                    {t} {idx < article.tags.length - 1 ? '·' : ''}
                   </span>
-                  <div>
-                    <h3 className="font-serif-custom text-lg font-semibold text-[#0f1115]">
-                      {topic.title}
-                    </h3>
-                    <p className="font-mono text-[10px] text-[#626773] uppercase tracking-wider">
-                      {topic.keyTopics.length} DOMAIN SUBFIELDS
-                    </p>
-                  </div>
-                </div>
-
-                <ChevronRight className={`w-4 h-4 transition-transform ${
-                  selectedTopic.id === topic.id ? 'translate-x-1 text-[#0f1115]' : 'text-[#a0a7b5]'
-                }`} />
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
 
-          {/* Right Column: Active Topic Deep Dive & Mathematical Formulation */}
-          <div className="lg:col-span-7 bg-[#fcfbfa] border border-[#0f1115] p-8 card-engraved-edge flex flex-col justify-between relative">
-            <div className="absolute top-2 right-2 font-mono text-[9px] text-[#b5b0a3]">+</div>
-
-            <div>
-              {/* Header */}
-              <div className="flex justify-between items-start pb-6 border-b border-[#e3ded5] mb-6">
-                <div>
-                  <span className="px-2.5 py-1 bg-[#0f1115] text-[#f7f5f0] font-mono text-[10px] uppercase tracking-widest font-semibold">
-                    THEORETICAL SPECIFICATION
-                  </span>
-                  <h3 className="font-serif-custom text-2xl sm:text-3xl font-semibold text-[#0f1115] mt-2">
-                    {selectedTopic.title}
-                  </h3>
-                </div>
-              </div>
-
-              {/* Summary */}
-              <div className="mb-6">
-                <h4 className="font-mono text-xs tracking-wider uppercase text-[#626773] mb-2">
-                  RESEARCH EXECUTIVE SUMMARY
-                </h4>
-                <p className="font-sans text-sm text-[#333740] leading-relaxed">
-                  {selectedTopic.summary}
+            <div className="flex flex-col lg:flex-row lg:items-baseline justify-between gap-4">
+              <div>
+                <h3 className="font-garamond text-2xl sm:text-4xl text-[#121315] font-normal tracking-[0.02em] leading-tight bateman-letterpress uppercase group-hover:text-[#000000] transition-colors">
+                  {article.title}
+                </h3>
+                <p className="font-garamond text-lg sm:text-2xl text-[#706f6a] italic mt-1">
+                  {article.subtitle}
                 </p>
               </div>
 
-              {/* Mathematical Equation Sample */}
-              {selectedTopic.equationSample && (
-                <div className="mb-6 bg-[#0f1115] text-[#f7f5f0] p-6 border border-[#333740] font-mono">
-                  <div className="flex justify-between items-center text-[10px] text-[#a0a7b5] uppercase mb-3 border-b border-[#333740] pb-2">
-                    <span>MATHEMATICAL FORMULATION</span>
-                    <span>PETRONAS QUANT MATRIX</span>
-                  </div>
-                  <div className="text-center py-4 text-sm sm:text-base text-[#ffffaa] overflow-x-auto">
-                    <code>{selectedTopic.equationSample}</code>
-                  </div>
-                  <p className="text-[11px] text-[#a0a7b5] border-t border-[#333740] pt-2 text-center italic font-serif-custom">
-                    {selectedTopic.equationDescription}
-                  </p>
-                </div>
-              )}
-
-              {/* Key Subfield Badges */}
-              <div>
-                <h4 className="font-mono text-xs tracking-wider uppercase text-[#626773] mb-3">
-                  CORE TECHNICAL SUBFIELDS
-                </h4>
-                <div className="grid grid-cols-2 gap-2">
-                  {selectedTopic.keyTopics.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="p-3 bg-[#f7f5f0] border border-[#e3ded5] font-mono text-xs text-[#0f1115] flex items-center space-x-2"
-                    >
-                      <span className="w-1.5 h-1.5 bg-[#0f1115]"></span>
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <span className="font-mono text-xs tracking-[0.2em] text-[#121315] uppercase border-b border-[#121315] pb-0.5 self-start lg:self-auto opacity-70 group-hover:opacity-100 transition-opacity">
+                READ RESEARCH →
+              </span>
             </div>
 
-            {/* Footer */}
-            <div className="pt-6 mt-8 border-t border-[#e3ded5] flex justify-between items-center font-mono text-[10px] text-[#626773] uppercase">
-              <span>RESEARCH MATRIX V2.6</span>
-              <span>VERIFIED QUANT FOUNDATION</span>
-            </div>
+            <p className="font-garamond text-base sm:text-xl text-[#2a2b2e] leading-relaxed max-w-4xl pt-2">
+              {article.summary}
+            </p>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );

@@ -24,24 +24,20 @@
   background-attachment: fixed;
 }
 
-/* Ultra Deep Hot-Foil Letterpress Inset Debossing Shadow */
+/* Clean Vertical Letterpress Inset Debossing Shadow (Zero Diagonal Slanting) */
 .bateman-letterpress {
   color: #0e0f11;
   text-shadow: 
-    0 -2px 1.5px rgba(0, 0, 0, 0.95),
-    -1.5px -1px 1px rgba(0, 0, 0, 0.7),
-    0 2px 1px rgba(255, 255, 255, 1),
-    1px 2px 1px rgba(255, 255, 255, 0.9);
+    0 -1.5px 1px rgba(0, 0, 0, 0.75),
+    0 1.5px 1px rgba(255, 255, 255, 0.95);
 }
 
-/* Maximum Debossing Depth for Heading Name (Tengku ANAS) */
+/* Maximum Vertical Debossing Depth for Heading Name (Tengku ANAS - 100% Straight & Upright) */
 .bateman-letterpress-heading {
   color: #0a0b0d;
   text-shadow: 
-    0 -3.5px 2.5px rgba(0, 0, 0, 0.98),
-    -2px -1.5px 2px rgba(0, 0, 0, 0.8),
-    0 3px 1.5px rgba(255, 255, 255, 1),
-    2px 3px 1.5px rgba(255, 255, 255, 0.95);
+    0 -2.5px 2px rgba(0, 0, 0, 0.9),
+    0 2.5px 1.5px rgba(255, 255, 255, 0.95);
 }
 
 /* Authentic Executive Small Caps Typography (True Small-Caps Rendering) */

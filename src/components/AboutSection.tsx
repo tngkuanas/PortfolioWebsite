@@ -1,107 +1,215 @@
-import React from 'react';
-import { GraduationCap } from 'lucide-react';
-import { PERSONAL_INFO } from '../data/portfolioData';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 export const AboutSection: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const labelRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const subHeadingRef = useRef<HTMLDivElement>(null);
+  const paragraphRef = useRef<HTMLDivElement>(null);
+  const metaRightRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Intersection Observer for Typesetting & Section Reveal
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 1.1 } });
+
+              // 1. Label typesets into position
+              tl.fromTo(
+                labelRef.current,
+                { opacity: 0, x: -20 },
+                { opacity: 1, x: 0, duration: 0.8 },
+                0.1
+              );
+
+              // 2. Large Heading: Clean Typesetting Staggered Reveal (100% Upright)
+              const headingLines = headingRef.current?.querySelectorAll('.typeset-line');
+              if (headingLines && headingLines.length > 0) {
+                tl.fromTo(
+                  headingLines,
+                  { opacity: 0, y: 35 },
+                  { opacity: 1, y: 0, duration: 1.2, stagger: 0.15 },
+                  0.2
+                );
+              } else {
+                tl.fromTo(
+                  headingRef.current,
+                  { opacity: 0, y: 35 },
+                  { opacity: 1, y: 0, duration: 1.2 },
+                  0.2
+                );
+              }
+
+              // 3. Sub-heading & Paragraph reveals
+              tl.fromTo(
+                subHeadingRef.current,
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.9 },
+                0.4
+              );
+
+              tl.fromTo(
+                paragraphRef.current,
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.9 },
+                0.6
+              );
+
+              // 4. Right Metadata Column Staggered Typesetting
+              if (metaRightRef.current) {
+                const items = metaRightRef.current.querySelectorAll('.meta-item');
+                tl.fromTo(
+                  items,
+                  { opacity: 0, x: 25 },
+                  { opacity: 1, x: 0, duration: 0.8, stagger: 0.12 },
+                  0.5
+                );
+              }
+
+              observer.disconnect();
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      if (sectionRef.current) {
+        observer.observe(sectionRef.current);
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="about" className="py-24 border-t border-[#e3ded5] bg-[#f7f5f0] relative paper-texture">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="about"
+      ref={sectionRef}
+      className="min-h-screen w-full relative bateman-paper-texture py-24 sm:py-32 px-8 sm:px-14 md:px-20 lg:px-24 flex flex-col justify-between overflow-hidden selection:bg-[#121315] selection:text-[#f7f6f2]"
+    >
+      {/* Main Editorial Grid: 3-Column Asymmetric Layout (Pure Straight Upright Typography) */}
+      <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 my-auto items-start z-10">
         
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-[#0f1115]">
-          <div>
-            <div className="flex items-center space-x-2 mb-2 font-mono text-xs tracking-widest uppercase text-[#626773]">
-              <span>[ SECTION IV ]</span>
-              <span>·</span>
-              <span>BIOGRAPHY & ACADEMIC CREDENTIALS</span>
-            </div>
-            <h2 className="font-serif-custom text-3xl sm:text-5xl font-medium text-[#0f1115] tracking-tight">
-              About & Philosophy
-            </h2>
-          </div>
-          <div className="mt-4 md:mt-0 font-mono text-xs text-[#626773] text-right">
-            <p>UNIVERSITY OF MALAYA ALUMNUS</p>
-            <p className="text-[10px]">DATA SCIENCE SPECIALIZATION</p>
+        {/* COLUMN 1: Small Section Label (2 Cols) */}
+        <div className="lg:col-span-2 flex flex-col justify-start">
+          <div 
+            ref={labelRef}
+            className="font-mono text-xs sm:text-sm tracking-[0.2em] text-[#706f6a] uppercase font-medium bateman-letterpress"
+          >
+            01 — ABOUT
           </div>
         </div>
 
-        {/* Content Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
-          {/* Left Column: Formal Executive Dossier Card */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="bg-[#fcfbfa] border border-[#0f1115] p-8 card-engraved-edge relative">
-              <div className="absolute top-2 right-2 font-mono text-[9px] text-[#b5b0a3]">+</div>
-              
-              <div className="border-b border-[#e3ded5] pb-6 mb-6">
-                <p className="font-mono text-[10px] tracking-widest uppercase text-[#626773] mb-1">
-                  EXECUTIVE PROFILE
-                </p>
-                <h3 className="font-serif-custom text-2xl font-bold text-[#0f1115]">
-                  {PERSONAL_INFO.name}
-                </h3>
-                <p className="font-sans text-xs tracking-widest uppercase text-[#626773] mt-1">
-                  {PERSONAL_INFO.title}
-                </p>
-              </div>
-
-              {/* Dossier Grid */}
-              <div className="space-y-4 font-mono text-xs">
-                <div className="flex justify-between py-2 border-b border-[#f0ece1]">
-                  <span className="text-[#626773]">DEGREE:</span>
-                  <span className="font-semibold text-[#0f1115] text-right">{PERSONAL_INFO.degree}</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-[#f0ece1]">
-                  <span className="text-[#626773]">INSTITUTION:</span>
-                  <span className="font-semibold text-[#0f1115] text-right">{PERSONAL_INFO.university}</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-[#f0ece1]">
-                  <span className="text-[#626773]">LOCATION:</span>
-                  <span className="font-semibold text-[#0f1115] text-right">{PERSONAL_INFO.location}</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-[#f0ece1]">
-                  <span className="text-[#626773]">CURRENT DESK:</span>
-                  <span className="font-semibold text-[#0f1115] text-right">PETRONAS Quant / Data Science</span>
-                </div>
-                <div className="flex justify-between py-2">
-                  <span className="text-[#626773]">SPECIALTY:</span>
-                  <span className="font-semibold text-[#0f1115] text-right">Energy & Commodity Markets</span>
-                </div>
-              </div>
+        {/* COLUMN 2: Typographic Main Statement & Broad Positioning Profile (7 Cols) */}
+        <div className="lg:col-span-7 flex flex-col space-y-8 sm:space-y-10 pr-0 lg:pr-8">
+          {/* Main Name Heading (Pure Upright Garamond) */}
+          <h2
+            ref={headingRef}
+            className="font-garamond text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-[0.03em] leading-[0.95] text-[#121315] bateman-letterpress-heading uppercase"
+          >
+            <div className="typeset-line">
+              T<span className="text-[0.72em] uppercase tracking-[0.01em]">engku</span> ANAS
             </div>
+            <div className="typeset-line mt-1">
+              Z<span className="text-[0.72em] uppercase tracking-[0.01em]">ainal</span> A<span className="text-[0.72em] uppercase tracking-[0.01em]">bidin</span>
+            </div>
+          </h2>
+
+          {/* Sub-heading Description: Quant · Data Science · AI */}
+          <div
+            ref={subHeadingRef}
+            className="font-garamond text-lg sm:text-2xl md:text-3xl text-[#121315] tracking-[0.05em] leading-relaxed bateman-letterpress"
+          >
+            <p>
+              C<span className="text-[0.74em] uppercase">omputer</span> S<span className="text-[0.74em] uppercase">cience</span> &nbsp;·&nbsp; D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span>
+            </p>
+            <p className="mt-1">
+              Q<span className="text-[0.74em] uppercase">uant</span> &nbsp;·&nbsp; D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span> &nbsp;·&nbsp; AI
+            </p>
           </div>
 
-          {/* Right Column: Quantitative Philosophy & Academic Foundation */}
-          <div className="lg:col-span-7 space-y-8">
-            <div className="bg-[#fcfbfa] border border-[#e3ded5] p-8 card-engraved-edge space-y-6">
-              <h3 className="font-serif-custom text-2xl font-semibold text-[#0f1115]">
-                Quantitative Analytical Philosophy
-              </h3>
-              <p className="font-sans text-sm sm:text-base text-[#333740] leading-relaxed">
-                {PERSONAL_INFO.bio}
-              </p>
-              <p className="font-sans text-sm sm:text-base text-[#333740] leading-relaxed">
-                My approach bridges rigorous computer science data engineering, high-dimensional statistical learning, and the physical realities of global energy supply chains. Rather than treating markets as abstract stochastic noise, I build models rooted in chemical yield kinetics, freight logistics matrix math, and empirical supply-demand balances.
-              </p>
-            </div>
+          {/* Broad Positioning Profile Statement */}
+          <div
+            ref={paragraphRef}
+            className="font-garamond text-base sm:text-xl md:text-2xl text-[#2a2b2e] leading-relaxed tracking-[0.03em] space-y-6 bateman-letterpress max-w-3xl pt-2"
+          >
+            <p>
+              Working at the intersection of quantitative research, data science, artificial intelligence, and financial markets. Building statistical models, forecasting systems, algorithmic analytics, and data-driven decision tools across complex real-world problems. Experience spans quantitative modelling and applied machine learning, with a focus on translating data into systematic, actionable decisions.
+            </p>
+            <p className="text-sm sm:text-lg md:text-xl text-[#5a5b5e] font-normal">
+              Combining rigorous statistical methodology from the University of Malaya with institutional commodities desk deployment.
+            </p>
+          </div>
+        </div>
 
-            {/* Academic Credentials Box */}
-            <div className="bg-[#0f1115] text-[#f7f5f0] p-8 border border-[#333740] space-y-4">
-              <div className="flex items-center space-x-3 text-[#d4cebe]">
-                <GraduationCap className="w-6 h-6" />
-                <span className="font-mono text-xs tracking-widest uppercase">
-                  ACADEMIC FOUNDATION
-                </span>
-              </div>
-              <h4 className="font-serif-custom text-xl sm:text-2xl font-semibold">
-                University of Malaya — Bachelor of Computer Science (Data Science)
-              </h4>
-              <p className="font-sans text-xs sm:text-sm text-[#a0a7b5] leading-relaxed">
-                Rigorous training in algorithm design, machine learning theory, distributed computing, database management systems, applied linear algebra, and multivariate probability.
-              </p>
-            </div>
+        {/* COLUMN 3: Broad Metadata & Publication Details (3 Cols) */}
+        <div 
+          ref={metaRightRef}
+          className="lg:col-span-3 lg:pl-6 flex flex-col space-y-8 font-garamond"
+        >
+          {/* Metadata Block 1: Location */}
+          <div className="meta-item flex flex-col space-y-1">
+            <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
+              LOCATION
+            </span>
+            <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
+              K<span className="text-[0.74em] uppercase">uala</span> L<span className="text-[0.74em] uppercase">umpur</span>, M<span className="text-[0.74em] uppercase">alaysia</span>
+            </span>
           </div>
 
+          {/* Metadata Block 2: Institution */}
+          <div className="meta-item flex flex-col space-y-1">
+            <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
+              ALMA MATER
+            </span>
+            <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
+              U<span className="text-[0.74em] uppercase">niversity of</span> M<span className="text-[0.74em] uppercase">alaya</span>
+            </span>
+          </div>
+
+          {/* Metadata Block 3: Primary Disciplines */}
+          <div className="meta-item flex flex-col space-y-1">
+            <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
+              DISCIPLINE
+            </span>
+            <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
+              C<span className="text-[0.74em] uppercase">omputer</span> S<span className="text-[0.74em] uppercase">cience</span> &nbsp;/&nbsp; D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span>
+            </span>
+          </div>
+
+          {/* Metadata Block 4: Specialization */}
+          <div className="meta-item flex flex-col space-y-1">
+            <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
+              SPECIALIZATION
+            </span>
+            <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
+              Q<span className="text-[0.74em] uppercase">uant</span> &nbsp;/&nbsp; D<span className="text-[0.74em] uppercase">ata</span> S<span className="text-[0.74em] uppercase">cience</span> &nbsp;/&nbsp; AI
+            </span>
+          </div>
+
+          {/* Metadata Block 5: Interests */}
+          <div className="meta-item flex flex-col space-y-1">
+            <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
+              INTERESTS
+            </span>
+            <span className="text-sm sm:text-base md:text-lg font-medium text-[#121315] tracking-[0.08em] bateman-letterpress">
+              T<span className="text-[0.74em] uppercase">rading</span> &nbsp;/&nbsp; I<span className="text-[0.74em] uppercase">nvestments</span> &nbsp;/&nbsp; M<span className="text-[0.74em] uppercase">achine</span> L<span className="text-[0.74em] uppercase">earning</span>
+            </span>
+          </div>
+
+          {/* Metadata Block 6: Corporate Desk */}
+          <div className="meta-item flex flex-col space-y-1 pt-2">
+            <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] text-[#706f6a] uppercase">
+              CURRENT AFFILIATION
+            </span>
+            <span className="text-xs sm:text-sm font-semibold text-[#121315] tracking-[0.1em] bateman-letterpress uppercase">
+              PETRONAS / PETCO TRADING
+            </span>
+          </div>
         </div>
       </div>
     </section>
