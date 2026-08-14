@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --ink-black: #0e0f11;
+    --paper-stock: #f7f6f2;
+  }
+
+  html, body {
+    background-color: var(--paper-stock);
+    color: #0e0f11;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+}
+
+/* Full-Screen Cropped Gemini Paper Texture */
+.bateman-paper-texture {
+  background-color: #f7f6f2;
+  background-image: url('/gemini-paper-cropped.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Ultra Deep Hot-Foil Letterpress Inset Debossing Shadow */
+.bateman-letterpress {
+  color: #0e0f11;
+  text-shadow: 
+    0 -2px 1.5px rgba(0, 0, 0, 0.95),
+    -1.5px -1px 1px rgba(0, 0, 0, 0.7),
+    0 2px 1px rgba(255, 255, 255, 1),
+    1px 2px 1px rgba(255, 255, 255, 0.9);
+}
+
+/* Maximum Debossing Depth for Heading Name (Tengku ANAS) */
+.bateman-letterpress-heading {
+  color: #0a0b0d;
+  text-shadow: 
+    0 -3.5px 2.5px rgba(0, 0, 0, 0.98),
+    -2px -1.5px 2px rgba(0, 0, 0, 0.8),
+    0 3px 1.5px rgba(255, 255, 255, 1),
+    2px 3px 1.5px rgba(255, 255, 255, 0.95);
+}
+
+/* Authentic Executive Small Caps Typography (True Small-Caps Rendering) */
+.font-small-caps {
+  font-variant-caps: small-caps;
+  font-feature-settings: "smcp" 1, "c2sc" 1;
+}
+
+.font-garamond {
+  font-family: 'Cormorant Garamond', 'Garamond', Georgia, serif;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-bodoni {
+  font-family: 'Bodoni Moda', 'Didot', serif;
+}
+
+/* Custom Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f7f6f2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c8c3b4;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0e0f11;
+}
