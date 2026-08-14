@@ -10,21 +10,29 @@
     background-color: var(--paper-stock);
     color: #0e0f11;
     overflow-x: hidden;
-    scroll-behavior: smooth;
   }
 }
 
-/* Full-Screen Cropped Gemini Paper Texture */
-.bateman-paper-texture {
+/* Hardware-Accelerated Fixed Paper Background (Zero Repaint Lag, Liquid Smooth) */
+.bateman-paper-bg-fixed {
+  position: fixed;
+  inset: 0;
   background-color: #f7f6f2;
   background-image: url('/gemini-paper-cropped.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  pointer-events: none;
+  z-index: 0;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
-/* Clean Vertical Letterpress Inset Debossing Shadow (Zero Diagonal Slanting) */
+.bateman-paper-texture {
+  background-color: transparent;
+}
+
+/* Clean Vertical Letterpress Inset Debossing Shadow */
 .bateman-letterpress {
   color: #0e0f11;
   text-shadow: 

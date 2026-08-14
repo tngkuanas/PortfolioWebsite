@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Lenis from 'lenis';
 import { HeaderNav } from './components/HeaderNav';
 import { HeroCard } from './components/HeroCard';
 import { AboutSection } from './components/AboutSection';
@@ -17,12 +18,39 @@ export function App() {
     SELECTED_PROJECTS[0]
   );
 
+  // Initialize Lenis High-Precision Inertia Smooth Scroll Engine
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 0.95,
+      touchMultiplier: 1.5,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   const handleSelectProjectForCaseStudy = (project: ProjectItem) => {
     setSelectedCaseStudyProject(project);
   };
 
   return (
-    <div className="min-h-screen bateman-paper-texture text-[#121315] selection:bg-[#121315] selection:text-[#f7f6f2]">
+    <div className="min-h-screen relative text-[#121315] selection:bg-[#121315] selection:text-[#f7f6f2]">
+      {/* GPU Composited Hardware-Accelerated Fixed Paper Background (Zero Repaint Lag) */}
+      <div className="bateman-paper-bg-fixed" />
+
       {/* Essential Navigation Header Bar */}
       <HeaderNav />
 
@@ -30,7 +58,7 @@ export function App() {
       <HeroCard />
 
       {/* Editorial Master Sections Flow */}
-      <main>
+      <main className="relative z-10">
         {/* 01 — ABOUT */}
         <AboutSection />
 
