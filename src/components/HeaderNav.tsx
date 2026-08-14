@@ -44,36 +44,36 @@ export const HeaderNav: React.FC = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 transform ${
         isVisible 
-          ? 'translate-y-0 opacity-100 bg-[#0e0f11] text-[#f7f6f2] py-3.5 shadow-md border-b border-[#22242a]' 
+          ? 'translate-y-0 opacity-100 bg-[#0e0f11] text-[#ffffff] py-4 shadow-lg border-b border-[#22242a]' 
           : '-translate-y-full opacity-0 pointer-events-none'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 flex items-center justify-between font-garamond">
-        {/* Left Editorial Stamp */}
+      <div className="w-full px-8 sm:px-14 md:px-20 lg:px-24 flex items-center justify-between font-mono">
+        {/* Far Left: Logo Stamp + Name */}
         <a 
           href="#hero" 
-          className="flex items-center space-x-3 group text-left"
+          className="flex items-center space-x-3.5 group text-left"
         >
-          <div className="w-6 h-6 border border-[#f7f6f2] flex items-center justify-center font-garamond text-xs font-semibold text-[#f7f6f2]">
+          <div className="w-7 h-7 border border-[#ffffff] flex items-center justify-center font-bold text-xs text-[#ffffff] bg-[#121315]">
             TA
           </div>
           <div>
-            <p className="font-garamond text-xs sm:text-sm tracking-[0.18em] font-medium uppercase text-[#f7f6f2]">
+            <p className="text-xs sm:text-sm tracking-[0.16em] font-bold uppercase text-[#ffffff]">
               TENGKU ANAS
             </p>
           </div>
         </a>
 
-        {/* Section Navigation Links (Serif Editorial Garamond, Non-Techy) */}
-        <nav className="hidden lg:flex items-center space-x-7 font-garamond text-xs tracking-[0.18em]">
+        {/* Center: Section Navigation Links (High-Clarity Clean Font & Spacing) */}
+        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-xs tracking-[0.12em] font-medium">
           {navItems.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
               className={`transition-colors duration-200 py-1 uppercase ${
                 activeSection === item.id 
-                  ? 'text-[#f7f6f2] font-semibold border-b border-[#f7f6f2]' 
-                  : 'text-[#9094a0] hover:text-[#f7f6f2]'
+                  ? 'text-[#ffffff] font-bold border-b-2 border-[#ffffff]' 
+                  : 'text-[#a0a4b0] hover:text-[#ffffff]'
               }`}
             >
               {item.label}
@@ -81,24 +81,24 @@ export const HeaderNav: React.FC = () => {
           ))}
         </nav>
 
-        {/* Right Contact Quick Link */}
+        {/* Far Right: Contact Button */}
         <div className="flex items-center">
           <a
             href="#contact"
-            className="px-3.5 py-1 border border-[#f7f6f2] text-[#f7f6f2] hover:bg-[#f7f6f2] hover:text-[#0e0f11] font-garamond text-xs tracking-[0.2em] uppercase transition-all"
+            className="px-4 py-1.5 border border-[#ffffff] text-[#ffffff] hover:bg-[#ffffff] hover:text-[#0e0f11] text-xs tracking-[0.16em] font-semibold uppercase transition-all"
           >
             CONTACT
           </a>
         </div>
       </div>
 
-      {/* Mobile nav bar strip (Serif Garamond) */}
-      <div className="lg:hidden flex overflow-x-auto whitespace-nowrap space-x-4 px-6 pt-2 pb-1 border-t border-[#22242a] mt-2 bg-[#0e0f11] scrollbar-none font-garamond text-xs tracking-[0.15em] text-[#9094a0]">
+      {/* Mobile nav bar strip (High-Clarity Font) */}
+      <div className="lg:hidden flex overflow-x-auto whitespace-nowrap space-x-5 px-8 pt-2 pb-1 border-t border-[#22242a] mt-2 bg-[#0e0f11] scrollbar-none text-xs tracking-[0.12em] text-[#a0a4b0]">
         {navItems.map((item) => (
           <a
             key={item.id}
             href={`#${item.id}`}
-            className="hover:text-[#f7f6f2] uppercase"
+            className="hover:text-[#ffffff] uppercase font-medium"
           >
             {item.label}
           </a>
