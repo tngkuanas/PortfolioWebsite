@@ -10,7 +10,6 @@
     background-color: var(--paper-stock);
     color: #0e0f11;
     overflow-x: hidden;
-    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
   }
 
@@ -18,11 +17,6 @@
     background-color: transparent;
     color: #0e0f11;
     overflow-x: hidden;
-  }
-
-  section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
   }
 }
 
