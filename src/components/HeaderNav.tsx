@@ -8,25 +8,36 @@ export const HeaderNav: React.FC = () => {
     const handleScroll = () => {
       const heroThreshold = window.innerHeight * 0.45;
       setIsVisible(window.scrollY > heroThreshold);
-
-      const sections = ['about', 'work', 'case-studies', 'research', 'experience', 'lab', 'now', 'contact'];
-      const scrollPos = window.scrollY + 250;
-
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
-      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // Precise Intersection Observer for Section Navigation Active Link Highlight
+    const sections = ['about', 'work', 'case-studies', 'research', 'experience', 'lab', 'now', 'contact'];
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: '-15% 0px -55% 0px',
+        threshold: 0.1,
+      }
+    );
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   const navItems = [
@@ -49,7 +60,7 @@ export const HeaderNav: React.FC = () => {
       }`}
     >
       <div className="w-full px-8 sm:px-14 md:px-20 lg:px-24 flex items-center justify-between font-garamond">
-        {/* Far Left: Logo Stamp + Name (Deep Obsidian Black Theme) */}
+        {/* Far Left: Logo Stamp + Name */}
         <a 
           href="#hero" 
           className="flex items-center space-x-3.5 group text-left"
@@ -92,7 +103,7 @@ export const HeaderNav: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile nav bar strip (Deep Obsidian Black Theme) */}
+      {/* Mobile nav bar strip */}
       <div className="lg:hidden flex overflow-x-auto whitespace-nowrap space-x-5 px-8 pt-2 pb-1 border-t border-[#22242a] mt-2 bg-[#0e0f11] scrollbar-none text-xs sm:text-sm tracking-[0.15em] text-[#a0a4b0] font-garamond">
         {navItems.map((item) => (
           <a
