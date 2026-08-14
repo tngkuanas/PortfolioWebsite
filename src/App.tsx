@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Lenis from 'lenis';
 import { HeaderNav } from './components/HeaderNav';
 import { HeroCard } from './components/HeroCard';
 import { AboutSection } from './components/AboutSection';
@@ -16,6 +17,30 @@ export function App() {
   const [selectedCaseStudyProject, setSelectedCaseStudyProject] = useState<ProjectItem>(
     SELECTED_PROJECTS[0]
   );
+
+  // Initialize Lenis with Mouse Wheel Step Normalization & Inertia Smoothing
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.3,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.5,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
 
   const handleSelectProjectForCaseStudy = (project: ProjectItem) => {
     setSelectedCaseStudyProject(project);
