@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SELECTED_PROJECTS, type ProjectItem } from '../data/portfolioData';
 import { RegimeChartVisual } from './visuals/RegimeChartVisual';
 import { CurrencyPressureVisual } from './visuals/CurrencyPressureVisual';
@@ -8,6 +8,27 @@ import { AiraPipelineVisual } from './visuals/AiraPipelineVisual';
 
 export const SelectedWorkSection: React.FC = () => {
   const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
+
+  // Close modal on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setActiveModalProject(null);
+      }
+    };
+
+    if (activeModalProject) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [activeModalProject]);
 
   const renderVisualForProject = (id: string) => {
     switch (id) {
@@ -52,7 +73,7 @@ export const SelectedWorkSection: React.FC = () => {
           <div
             key={project.id}
             onClick={() => setActiveModalProject(project)}
-            className="group w-full cursor-pointer p-8 sm:p-10 border border-[#121315] bg-[#121315]/[0.01] hover:bg-[#121315]/[0.03] transition-all duration-300 space-y-6"
+            className="group w-full cursor-pointer p-8 sm:p-10 border border-[#121315] bg-[#121315]/[0.01] hover:bg-[#121315]/[0.03] hover:border-[#121315] hover:shadow-sm transition-all duration-300 space-y-6"
           >
             {/* Top Bar: Number & Clean Subtitle */}
             <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-[#121315]/20 pb-4">
@@ -76,7 +97,7 @@ export const SelectedWorkSection: React.FC = () => {
               </div>
 
               {/* Data Visualization Component with Hover Effect */}
-              <div className="lg:col-span-5 transform group-hover:scale-[1.02] transition-transform duration-300">
+              <div className="lg:col-span-5 transform group-hover:scale-[1.01] transition-transform duration-300">
                 {renderVisualForProject(project.id)}
               </div>
             </div>
@@ -86,8 +107,14 @@ export const SelectedWorkSection: React.FC = () => {
 
       {/* Immersive Editorial Case Study Modal Drawer */}
       {activeModalProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-[#0e0f11]/80 backdrop-blur-md overflow-y-auto animate-fadeIn">
-          <div className="relative w-full max-w-5xl bg-[#f7f6f2] border border-[#121315] p-8 sm:p-14 shadow-2xl space-y-10 my-auto text-[#121315] font-garamond max-h-[90vh] overflow-y-auto scrollbar-none">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-[#0e0f11]/80 backdrop-blur-sm overflow-y-auto"
+          onClick={() => setActiveModalProject(null)}
+        >
+          <div
+            className="relative w-full max-w-5xl bg-[#f7f6f2] border border-[#121315] p-8 sm:p-14 shadow-2xl space-y-10 my-auto text-[#121315] font-garamond max-h-[90vh] overflow-y-auto scrollbar-none transform transition-all duration-300 scale-100"
+            onClick={(e) => e.stopPropagation()}
+          >
             {/* Modal Header */}
             <div className="flex items-start justify-between border-b border-[#121315] pb-6">
               <div>
@@ -105,6 +132,7 @@ export const SelectedWorkSection: React.FC = () => {
               <button
                 onClick={() => setActiveModalProject(null)}
                 className="w-10 h-10 border border-[#121315] flex items-center justify-center font-mono text-sm hover:bg-[#121315] hover:text-[#f7f6f2] transition-colors"
+                aria-label="Close modal"
               >
                 ✕
               </button>
