@@ -7,22 +7,29 @@
   }
 
   html {
+    font-size: 17.5px;
     background-color: var(--paper-stock);
     color: #0e0f11;
     overflow-x: hidden;
-    scroll-snap-type: y proximity;
-    scroll-padding-top: 4rem;
     scroll-behavior: smooth;
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      font-size: 18.5px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    html {
+      font-size: 19.5px;
+    }
   }
 
   body {
     background-color: transparent;
     color: #0e0f11;
     overflow-x: hidden;
-  }
-
-  section {
-    scroll-snap-align: start;
   }
 }
 
